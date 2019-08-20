@@ -1,8 +1,8 @@
 {
-  "name": "",
+  "name": "main-gallery",
   "version": "",
   "description": "",
-  "author": "",
+  "author": "Howard Yang",
   "license": "",
   "engines": {
     "node": ">=6.13.0"
