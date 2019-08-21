@@ -1,0 +1,16 @@
+h1 {
+  color: red;
+}
+
+.picture-row {
+  display: flex;
+}
+.picture-column {
+  display: flex;
+  flex-direction: column;
+  height: 279.53px;
+}
+
+img {
+  margin: 1px;
+}
