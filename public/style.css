@@ -11,9 +11,33 @@ img {
   margin: 1px;
 }
 
+img:hover {
+  cursor: pointer;
+}
+
 .picture-last {
   filter: brightness(50%);
 }
+
 .picture-last:hover {
   filter: brightness(25%);
+}
+
+.text-container {
+  position: relative;
+  text-align: center;
+  font-size: 15px;
+  color: white;
+}
+
+.text-container:hover {
+  cursor: pointer;
+}
+
+.centered {
+  position: absolute;
+  width: 90px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

@@ -22,9 +22,12 @@ const Gallery = ({ images }) => {
       <div className="picture-column">
         <img src={images[6].url} height="91.84" width="91.84"></img>
         <img src={images[7].url} height="91.84" width="91.84"></img>
-        <img src={images[8].url} height="91.84" width="91.84"
-             className="picture-last">
-        </img>
+        <div className="text-container">
+          <img src={images[8].url} height="91.84" width="91.84"
+              className="picture-last">
+          </img>
+          <a className="centered">+ 91 more</a>
+        </div>
       </div>
     </div>  
   );
