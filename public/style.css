@@ -8,7 +8,6 @@
 .picture-column {
   display: flex;
   flex-direction: column;
-  height: 279.53px;
 }
 
 img {
@@ -19,8 +18,25 @@ img:hover {
   cursor: pointer;
 }
 
+.picture-double {
+  height: 138.57px;
+  width: 138.57px;
+}
+
+.picture-single {
+  height: 278.53px;
+  width: 278.53px;
+}
+
+.picture-triple {
+  height: 91.84px;
+  width: 91.84px;
+}
+
 .picture-last {
   filter: brightness(50%);
+  height: 91.84px;
+  width: 91.84px;
 }
 
 .picture-last:hover {
@@ -79,3 +95,13 @@ img:hover {
   left: 50%;
   margin-left: -300px;
 }
+
+@media only screen and (max-width: 600px) {
+  body {
+    background-color: lightblue;
+  }
+}
+
+/* //when width gets less than 767px
+//all images resize, then shrink
+13.8%
