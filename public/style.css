@@ -8,7 +8,6 @@
 .picture-column {
   display: flex;
   flex-direction: column;
-  height: 279.53px;
 }
 
 img {
@@ -17,6 +16,18 @@ img {
 
 img:hover {
   cursor: pointer;
+}
+
+.picture-double {
+  width: 138.57px;
+}
+
+.picture-single {
+  width: 278.53px;
+}
+
+.picture-triple {
+  width: 91.84px;
 }
 
 .picture-last {
@@ -78,4 +89,18 @@ img:hover {
   top: 270px;
   left: 50%;
   margin-left: -300px;
+}
+
+@media only screen and (max-width: 767px) {
+  .picture-triple {
+    width: 13vw;
+  }
+  
+  .picture-double {
+    width: 19.6vw;
+  }
+
+  .picture-single {
+    width: 39.65vw;
+  }
 }

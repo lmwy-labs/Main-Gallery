@@ -61,26 +61,26 @@ class Gallery extends React.Component {
         {bigImage === undefined ? <div></div> : bigImage}
         <div className="picture-row">
           <div className="picture-column">
-            <img onClick={this.handleClick} id={0} src={images[0].url} height="138.77" width="138.77"></img>
-            <img onClick={this.handleClick} id={1} src={images[1].url} height="138.77" width="138.77"></img>
+            <img className="picture-double" onClick={this.handleClick} id={0} src={images[0].url}></img>
+            <img className="picture-double" onClick={this.handleClick} id={1} src={images[1].url}></img>
           </div>
           <div className="picture-column">
-            <img src={images[2].url} height="279.53" width="279.53"></img>
+            <img className="picture-single" src={images[2].url}></img>
           </div>
           <div className="picture-column">
-            <img src={images[3].url} height="91.84" width="91.84"></img>
-            <img src={images[4].url} height="91.84" width="91.84"></img>
-            <img src={images[5].url} height="91.84" width="91.84"></img>
+            <img className="picture-triple" src={images[3].url}></img>
+            <img className="picture-triple" src={images[4].url}></img>
+            <img className="picture-triple" src={images[5].url}></img>
           </div>
           <div className="picture-column">
-            <img src={images[6].url} height="91.84" width="91.84"></img>
-            <img src={images[7].url} height="91.84" width="91.84"></img>
-            <div className="text-container">
-              <img src={images[8].url} height="91.84" width="91.84"
-                  className="picture-last">
+            <img className="picture-triple" src={images[6].url}></img>
+            <img className="picture-triple" src={images[7].url}></img>
+            {/* <div className="text-container"> */}
+              <img src={images[8].url}
+                  className="picture-last picture-triple">
               </img>
-              <div className="centered">+ 91 more</div>
-            </div>
+              {/* <div className="centered">+ 91 more</div> */}
+            {/* </div> */}
           </div>
         </div>  
       </div>
