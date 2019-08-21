@@ -65,22 +65,17 @@ class Gallery extends React.Component {
             <img className="picture-double" onClick={this.handleClick} id={1} src={images[1].url}></img>
           </div>
           <div className="picture-column">
-            <img className="picture-single" src={images[2].url}></img>
+            <img className="picture-single" onClick={this.handleClick} id={2} src={images[2].url}></img>
           </div>
           <div className="picture-column">
-            <img className="picture-triple" src={images[3].url}></img>
-            <img className="picture-triple" src={images[4].url}></img>
-            <img className="picture-triple" src={images[5].url}></img>
+            <img className="picture-triple" onClick={this.handleClick} id={3} src={images[3].url}></img>
+            <img className="picture-triple" onClick={this.handleClick} id={4} src={images[4].url}></img>
+            <img className="picture-triple" onClick={this.handleClick} id={5} src={images[5].url}></img>
           </div>
           <div className="picture-column">
-            <img className="picture-triple" src={images[6].url}></img>
-            <img className="picture-triple" src={images[7].url}></img>
-            {/* <div className="text-container"> */}
-              <img src={images[8].url}
-                  className="picture-last picture-triple">
-              </img>
-              {/* <div className="centered">+ 91 more</div> */}
-            {/* </div> */}
+            <img className="picture-triple" onClick={this.handleClick} id={6} src={images[6].url}></img>
+            <img className="picture-triple" onClick={this.handleClick} id={7} src={images[7].url}></img>
+            <img className="picture-last picture-triple" onClick={this.handleClick} id={8} src={images[8].url}></img>
           </div>
         </div>  
       </div>
