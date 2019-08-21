@@ -39,3 +39,15 @@ benuImageURLs.forEach((url) => {
     if (err) return console.error(err);
   });
 });
+
+const getImages = (cb) => {
+  Image.find({}, (err, docs) => {
+    if (err) {
+      cb(err, null);
+    } else {
+      cb(null, docs);
+    }
+  });
+};
+
+module.exports.getImages = getImages;
