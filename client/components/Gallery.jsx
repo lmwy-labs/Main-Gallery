@@ -75,12 +75,12 @@ class Gallery extends React.Component {
           <div className="picture-column">
             <img className="picture-triple" src={images[6].url}></img>
             <img className="picture-triple" src={images[7].url}></img>
-            <div className="text-container">
+            {/* <div className="text-container"> */}
               <img src={images[8].url}
-                  className="picture-last">
+                  className="picture-last picture-triple">
               </img>
-              <div className="centered">+ 91 more</div>
-            </div>
+              {/* <div className="centered">+ 91 more</div> */}
+            {/* </div> */}
           </div>
         </div>  
       </div>

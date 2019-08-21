@@ -19,24 +19,19 @@ img:hover {
 }
 
 .picture-double {
-  height: 138.57px;
   width: 138.57px;
 }
 
 .picture-single {
-  height: 278.53px;
   width: 278.53px;
 }
 
 .picture-triple {
-  height: 91.84px;
   width: 91.84px;
 }
 
 .picture-last {
   filter: brightness(50%);
-  height: 91.84px;
-  width: 91.84px;
 }
 
 .picture-last:hover {
@@ -96,12 +91,16 @@ img:hover {
   margin-left: -300px;
 }
 
-@media only screen and (max-width: 600px) {
-  body {
-    background-color: lightblue;
+@media only screen and (max-width: 767px) {
+  .picture-triple {
+    width: 13vw;
+  }
+  
+  .picture-double {
+    width: 19.6vw;
+  }
+
+  .picture-single {
+    width: 39.65vw;
   }
 }
-
-/* //when width gets less than 767px
-//all images resize, then shrink
-13.8%
