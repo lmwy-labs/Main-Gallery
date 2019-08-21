@@ -18,9 +18,10 @@ const App = () => {
       <div class="picture-column">
         <img src="https://resizer.otstatic.com/v2/photos/large/23369782.jpg" height="91.84" width="91.84"></img>
         <img src="https://resizer.otstatic.com/v2/photos/large/25841201.jpg" height="91.84" width="91.84"></img>
-        <img src="https://resizer.otstatic.com/v2/photos/large/25841199.jpg" height="91.84" width="91.84"></img>
+        <img src="https://resizer.otstatic.com/v2/photos/large/25841199.jpg" height="91.84" width="91.84"
+             class="picture-last"></img>
       </div>
-    </div>
+    </div>  
   );
 };
 

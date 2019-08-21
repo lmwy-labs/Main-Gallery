@@ -1,7 +1,3 @@
-h1 {
-  color: red;
-}
-
 .picture-row {
   display: flex;
 }
@@ -13,4 +9,11 @@ h1 {
 
 img {
   margin: 1px;
+}
+
+.picture-last {
+  filter: brightness(50%);
+}
+.picture-last:hover {
+  filter: brightness(25%);
 }
