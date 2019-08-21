@@ -1,5 +1,6 @@
 {
   "name": "main-gallery",
+  "private": true,
   "version": "",
   "description": "",
   "author": "Howard Yang",
@@ -13,9 +14,17 @@
     "start:dev": "nodemon server/index.js -w"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "webpack-cli": "^3.3.7"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor",
+    "webpack": "^4.39.2"
   }
 }
