@@ -11,9 +11,11 @@
   "scripts": {
     "build:dev": "webpack -d --watch",
     "start": "node server/index.js",
-    "start:dev": "nodemon server/index.js -w"
+    "start:dev": "nodemon server/index.js -w",
+    "test": "jest"
   },
   "dependencies": {
+    "@babel/runtime": "^7.5.5",
     "express": "^4.17.1",
     "mongoose": "^5.6.10",
     "react": "^16.9.0",
@@ -24,7 +26,17 @@
     "@babel/core": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "babel-jest": "^24.9.0",
     "babel-loader": "^8.0.6",
+    "babel-preset-airbnb": "^4.0.1",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "jest": "^24.9.0",
     "webpack": "^4.39.2"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./setupTests.js"
+    ]
   }
 }
