@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/otimages', {useNewUrlParser: true});
+
+mongoose.connect('mongodb://localhost/otimages', { useNewUrlParser: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
+db.once('open', () => {
   console.log('Connected to MongoDB!');
 });
 
@@ -18,7 +19,9 @@ const imageSchema = new mongoose.Schema({
 const Image = mongoose.model('Image', imageSchema);
 
 Image.deleteMany({}, (err) => {
-  if (err) return console.error(err);
+  if (err) {
+    console.log(err);
+  }
 });
 
 const benuImageURLs = [
@@ -34,9 +37,11 @@ const benuImageURLs = [
 ];
 
 benuImageURLs.forEach((url) => {
-  let image = new Image({ url });
+  const image = new Image({ url });
   image.save((err) => {
-    if (err) return console.error(err);
+    if (err) {
+      console.log(err);
+    }
   });
 });
 

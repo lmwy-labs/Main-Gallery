@@ -10,6 +10,7 @@ class Gallery extends React.Component {
     this.handleClick = this.handleClick.bind(this);
     this.handleNextClick = this.handleNextClick.bind(this);
     this.handlePreviousClick = this.handlePreviousClick.bind(this);
+    this.closePopupGallery = this.closePopupGallery.bind(this);
   }
 
   handleClick(e) {
@@ -38,6 +39,13 @@ class Gallery extends React.Component {
     });
   }
 
+  closePopupGallery() {
+    console.log('clicked');
+    this.setState({
+      selected: '',
+    });
+  }
+
   render() {
     const { images } = this.props;
     if (images.length === 0) {
@@ -48,10 +56,14 @@ class Gallery extends React.Component {
     if (this.state.selected !== '') {
       bigImage = (
         <div>
-          <div className={"grey-out"}></div>
-          <button className={"previous-image-button"} onClick={this.handlePreviousClick}>{'<'}</button>
-          <img className={"big-image"} src={images[this.state.selected].url} height="526" width="526"></img>  
-          <button className={"next-image-button"} onClick={this.handleNextClick}>></button>
+          <div className="grey-out"></div>
+          <div className="pop-out-container">
+            <button className="previous-image-button" onClick={this.handlePreviousClick}>{'<'}</button>
+            <img className="big-image" src={images[this.state.selected].url} height="526" width="526"></img>  
+            <button className="tiny-flag">Flag</button>
+            <button className="next-image-button" onClick={this.handleNextClick}>></button>
+            <div onClick={this.closePopupGallery} className="close-pop-out">X</div>
+          </div>
         </div>
       );
     }
