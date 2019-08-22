@@ -47,7 +47,6 @@ class Gallery extends React.Component {
 
   render() {
     const { images } = this.props;
-    console.log(images);
     if (images.length === 0) {
       return null;
     }
@@ -71,6 +70,7 @@ class Gallery extends React.Component {
     return (
       <div>
         {bigImage === undefined ? <div></div> : bigImage}
+        <title>Test Title</title>
         <div className="picture-row">
           <div className="picture-column">
             <img className="picture-double" onClick={this.handleClick} id={0} src={images[0].url}></img>

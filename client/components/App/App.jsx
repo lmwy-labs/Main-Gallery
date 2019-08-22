@@ -15,7 +15,7 @@ class App extends React.Component {
   }
   
   getImages() {
-    fetch('/benu', {
+    fetch(`/api${window.location.pathname}images`, {
       headers: {
         'Content-Type': 'application/json',
       },
