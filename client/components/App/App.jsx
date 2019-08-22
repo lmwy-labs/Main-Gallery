@@ -7,9 +7,14 @@ class App extends React.Component {
     this.state = {
       images: [],
     };
+    this.getImages = this.getImages.bind(this);
   }
 
   componentDidMount() {
+    this.getImages();
+  }
+  
+  getImages() {
     fetch('/benu', {
       headers: {
         'Content-Type': 'application/json',
