@@ -19,7 +19,9 @@ const imageSchema = new mongoose.Schema({
 const Image = mongoose.model('Image', imageSchema);
 
 Image.deleteMany({}, (err) => {
-  if (err) return console.error(err);
+  if (err) {
+    console.log(err);
+  }
 });
 
 const benuImageURLs = [
@@ -38,7 +40,7 @@ benuImageURLs.forEach((url) => {
   const image = new Image({ url });
   image.save((err) => {
     if (err) {
-      return console.error(err);
+      console.log(err);
     }
   });
 });
