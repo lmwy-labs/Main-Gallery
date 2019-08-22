@@ -40,13 +40,13 @@ class Gallery extends React.Component {
   }
 
   closePopupGallery() {
-    console.log('clicked');
     this.setState({
       selected: '',
     });
   }
 
   render() {
+    console.log('hello');
     const { images } = this.props;
     if (images.length === 0) {
       return null;
