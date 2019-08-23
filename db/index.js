@@ -9,9 +9,10 @@ db.once('open', () => {
 });
 
 const imageSchema = new mongoose.Schema({
+  restaurantId: Number,
   url: String,
   name: String,
-  type: String,
+  source: String,
   data: Date,
   photographer: String,
 });
@@ -37,7 +38,11 @@ const benuImageURLs = [
 ];
 
 benuImageURLs.forEach((url) => {
-  const image = new Image({ url });
+  const image = new Image({
+    url,
+    restaurantId: 1
+  });
+
   image.save((err) => {
     if (err) {
       console.log(err);
@@ -45,8 +50,8 @@ benuImageURLs.forEach((url) => {
   });
 });
 
-const getImages = (cb) => {
-  Image.find({}, (err, docs) => {
+const getImages = (rid, cb) => {
+  Image.find({ restaurantId: rid }, (err, docs) => {
     if (err) {
       cb(err, null);
     } else {
