@@ -9,7 +9,7 @@ db.once('open', () => {
 });
 
 const imageSchema = new mongoose.Schema({
-  restaurantId: Number,
+  restaurantId: String,
   url: String,
   name: String,
   source: String,
@@ -26,7 +26,6 @@ Image.deleteMany({}, (err) => {
 });
 
 const alts = [
-  'Tacos with lime',
   'Spoons with seasonings',
 ];
 
@@ -36,7 +35,7 @@ const seedImagesForRestaurant = (rid) => {
   while (i < 20) {
     image = new Image({
       url: i % 2 === 0 ? `https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/${rid}.jpeg` : 'https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/sample.jpeg',
-      restaurantId: rid,
+      restaurantId: `r${rid}`,
       name: i % 2 === 0 ? alts[rid] : 'Loaded potato wedges',
     });
 
@@ -49,7 +48,7 @@ const seedImagesForRestaurant = (rid) => {
   }
 };
 
-let i = 0;
+let i = 1;
 while (i < 2) {
   seedImagesForRestaurant(i);
   i += 1;
