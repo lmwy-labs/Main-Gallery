@@ -12,7 +12,7 @@ const imageSchema = new mongoose.Schema({
   restaurantId: Number,
   url: String,
   name: String,
-  type: String,
+  source: String,
   data: Date,
   photographer: String,
 });
