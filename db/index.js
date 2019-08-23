@@ -13,7 +13,7 @@ const imageSchema = new mongoose.Schema({
   url: String,
   name: String,
   source: String,
-  data: Date,
+  date: Date,
   photographer: String,
 });
 
@@ -25,30 +25,35 @@ Image.deleteMany({}, (err) => {
   }
 });
 
-const benuImageURLs = [
-  'https://resizer.otstatic.com/v2/photos/large/25162646.jpg',
-  'https://resizer.otstatic.com/v2/photos/large/23369781.jpg',
-  'https://resizer.otstatic.com/v2/photos/large/23369775.jpg',
-  'https://resizer.otstatic.com/v2/photos/large/25162645.jpg',
-  'https://resizer.otstatic.com/v2/photos/large/25841202.jpg',
-  'https://resizer.otstatic.com/v2/photos/large/25841200.jpg',
-  'https://resizer.otstatic.com/v2/photos/large/23369782.jpg',
-  'https://resizer.otstatic.com/v2/photos/large/25841201.jpg',
-  'https://resizer.otstatic.com/v2/photos/large/25841199.jpg',
+const alts = [
+  'Tacos with lime',
+  'Spoons with seasonings',
 ];
 
-benuImageURLs.forEach((url) => {
-  const image = new Image({
-    url,
-    restaurantId: 1,
-  });
+const seedImagesForRestaurant = (rid) => {
+  let i = 0;
+  let image;
+  while (i < 20) {
+    image = new Image({
+      url: i % 2 === 0 ? `https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/${rid}.jpeg` : 'https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/sample.jpeg',
+      restaurantId: rid,
+      name: i % 2 === 0 ? alts[rid] : 'Loaded potato wedges',
+    });
 
-  image.save((err) => {
-    if (err) {
-      console.log(err);
-    }
-  });
-});
+    image.save((err) => {
+      if (err) {
+        console.log(err);
+      }
+    });
+    i += 1;
+  }
+};
+
+let i = 0;
+while (i < 2) {
+  seedImagesForRestaurant(i);
+  i += 1;
+}
 
 const getImages = (rid, cb) => {
   Image.find({ restaurantId: rid }, (err, docs) => {
