@@ -47,7 +47,6 @@ class Gallery extends React.Component {
 
   render() {
     const { images } = this.props;
-    console.log(images);
     if (images.length === 0) {
       return null;
     }
