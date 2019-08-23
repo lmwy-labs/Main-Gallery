@@ -3,8 +3,6 @@ const path = require('path');
 const db = require('../db/index.js');
 
 const app = express();
-const port = 3000;
-
 app.use('/restaurants/:rid', express.static(path.resolve(__dirname, '../public')));
 
 app.get('/api/restaurants/:rid/images', (req, res) => {
@@ -14,10 +12,12 @@ app.get('/api/restaurants/:rid/images', (req, res) => {
       res.end();
     }
     
-    res.send(docs);
+    res.status(200).send(docs);
   });
 });
 
-app.listen(port, () => {
-  console.log(`App is listening on port ${port}`);
+app.get('/testEndpoint', (req, res) => {
+  res.status(200).send('success');
 });
+
+module.exports = app;

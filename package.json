@@ -11,7 +11,7 @@
   "scripts": {
     "build:dev": "webpack -d --watch",
     "start": "node server/index.js",
-    "start:dev": "nodemon server/index.js -w",
+    "start:dev": "nodemon server/server.js -w",
     "test": "jest"
   },
   "dependencies": {
@@ -33,11 +33,14 @@
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "jest": "^24.9.0",
+    "superagent": "^5.1.0",
+    "supertest": "^4.0.2",
     "webpack": "^4.39.2"
   },
   "jest": {
     "setupFilesAfterEnv": [
       "./setupTests.js"
-    ]
+    ],
+    "testEnvironment": "node"
   }
 }
