@@ -50,4 +50,35 @@ describe('Gallery', () => {
     expect(shallowToJson(wrapper)).toMatchSnapshot();
     expect(wrapper.state('selected')).toEqual(1);
   });
+
+  it('handles click events on the previous, next, and X buttons in the popup gallery', () => {
+    const wrapper = shallow(
+      <Gallery images={testData} />,
+    );
+    const image = wrapper.find('img').first();
+    image.props().onClick({
+      target: {
+        id: 0,
+      },
+    });
+    const nextButton = wrapper.find('.next-image-button');
+    const previousButton = wrapper.find('.previous-image-button');
+    const closePopoutDiv = wrapper.find('.close-pop-out');
+
+    previousButton.simulate('click');
+    expect(wrapper.state('selected')).toEqual(0);
+    nextButton.simulate('click');
+    expect(wrapper.state('selected')).toEqual(1);
+    for (let i = 0; i < 8; i++) {
+      nextButton.simulate('click');
+    }
+
+    expect(wrapper.state('selected')).toEqual(9);
+    nextButton.simulate('click');
+    expect(wrapper.state('selected')).toEqual(9);
+
+    closePopoutDiv.simulate('click');
+    expect(wrapper.find('.big-image').length).toEqual(0);
+
+  });
 });
