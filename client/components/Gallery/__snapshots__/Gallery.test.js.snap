@@ -1,3 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Gallery testing 1`] = `ShallowWrapper {}`;
+exports[`Gallery renders 9 image elements when passed an images array of length 9 or more 1`] = `ShallowWrapper {}`;
+
+exports[`Gallery renders nothing when passed an empty images array 1`] = `ShallowWrapper {}`;
