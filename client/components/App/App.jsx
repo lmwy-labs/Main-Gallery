@@ -13,17 +13,17 @@ class App extends React.Component {
   componentDidMount() {
     this.getImages();
   }
-    
+
   getImages() {
     fetch(`/api${window.location.pathname}images`, {
       headers: {
         'Content-Type': 'application/json',
       },
     })
-    .then((response) => response.json())
-    .then((images) => {
-      this.setState({ images });
-    });
+      .then((response) => response.json())
+      .then((images) => {
+        this.setState({ images });
+      });
   }
 
   render() {
