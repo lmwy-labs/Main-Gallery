@@ -50,9 +50,7 @@ class Gallery extends React.Component {
 
   render() {
     const { images } = this.props;
-    console.log(images);
     const { selected } = this.state;
-    console.log(selected);
     if (images.length === 0) {
       return null;
     }
