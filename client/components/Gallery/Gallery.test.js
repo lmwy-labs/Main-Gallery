@@ -30,5 +30,8 @@ describe('Gallery', () => {
     );
     expect(wrapper).toMatchSnapshot();
     expect(wrapper.find('img').length).toEqual(9);
+    testData.push({url: 'test.com'});
+    expect(wrapper).toMatchSnapshot();
+    expect(wrapper.find('img').length).toEqual(9);
   });
 });
