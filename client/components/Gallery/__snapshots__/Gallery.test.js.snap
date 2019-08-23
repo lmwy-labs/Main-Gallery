@@ -35,13 +35,12 @@ exports[`Gallery handles a click event on the first image in the static gallery 
       >
         &gt;
       </button>
-      <button
+      <div
         className="close-pop-out"
         onClick={[Function]}
-        type="button"
       >
         X
-      </button>
+      </div>
     </div>
   </div>
   <div

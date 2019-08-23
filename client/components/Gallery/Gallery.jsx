@@ -65,7 +65,7 @@ class Gallery extends React.Component {
             <img className="big-image" src={images[selected].url} height="526" width="526" />
             <button type="button" className="tiny-flag">Flag</button>
             <button type="button" className="next-image-button" onClick={this.handleNextClick}>{'>'}</button>
-            <button type="button" onClick={this.closePopupGallery} className="close-pop-out">X</button>
+            <div onClick={this.closePopupGallery} className="close-pop-out">X</div>
           </div>
         </div>
       );
