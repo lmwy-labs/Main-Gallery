@@ -40,7 +40,7 @@ const benuImageURLs = [
 benuImageURLs.forEach((url) => {
   const image = new Image({
     url,
-    restaurantId: 1
+    restaurantId: 1,
   });
 
   image.save((err) => {

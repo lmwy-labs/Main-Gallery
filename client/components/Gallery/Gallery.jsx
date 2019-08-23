@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -18,24 +19,26 @@ class Gallery extends React.Component {
       selected: e.target.id,
     });
   }
-  
+
   handleNextClick() {
-    if (this.state.selected == this.props.images.length - 1) {
+    const { selected } = this.state;
+    const { images } = this.props;
+    if (selected == images.length - 1) {
       return;
     }
 
     this.setState({
-      selected: Number(this.state.selected) + 1,
+      selected: Number(selected) + 1,
     });
   }
 
   handlePreviousClick() {
-    if(this.state.selected == 0) {
+    const { selected } = this.state;
+    if (selected == 0) {
       return;
-    } 
-    
+    }
     this.setState({
-      selected: this.state.selected - 1,
+      selected: selected - 1,
     });
   }
 
@@ -47,21 +50,22 @@ class Gallery extends React.Component {
 
   render() {
     const { images } = this.props;
+    const { selected } = this.state;
     if (images.length === 0) {
       return null;
     }
 
-    let bigImage;    
-    if (this.state.selected !== '') {
+    let bigImage;
+    if (selected !== '') {
       bigImage = (
         <div>
-          <div className="grey-out"></div>
+          <div className="grey-out" />
           <div className="pop-out-container">
-            <button className="previous-image-button" onClick={this.handlePreviousClick}>{'<'}</button>
-            <img className="big-image" src={images[this.state.selected].url} height="526" width="526"></img>  
-            <button className="tiny-flag">Flag</button>
-            <button className="next-image-button" onClick={this.handleNextClick}>></button>
-            <div onClick={this.closePopupGallery} className="close-pop-out">X</div>
+            <button type="button" className="previous-image-button" onClick={this.handlePreviousClick}>{'<'}</button>
+            <img className="big-image" src={images[selected].url} height="526" width="526" />
+            <button type="button" className="tiny-flag">Flag</button>
+            <button type="button" className="next-image-button" onClick={this.handleNextClick}>{'>'}</button>
+            <button type="button" onClick={this.closePopupGallery} className="close-pop-out">X</button>
           </div>
         </div>
       );
@@ -69,30 +73,38 @@ class Gallery extends React.Component {
 
     return (
       <div>
-        {bigImage === undefined ? <div></div> : bigImage}
+        {bigImage === undefined ? <div /> : bigImage}
         <title>Test Title</title>
         <div className="picture-row">
           <div className="picture-column">
-            <img className="picture-double" onClick={this.handleClick} id={0} src={images[0].url}></img>
-            <img className="picture-double" onClick={this.handleClick} id={1} src={images[1].url}></img>
+            <img className="picture-double" onClick={this.handleClick} id={0} src={images[0].url} />
+            <img className="picture-double" onClick={this.handleClick} id={1} src={images[1].url} />
           </div>
           <div className="picture-column">
-            <img className="picture-single" onClick={this.handleClick} id={2} src={images[2].url}></img>
+            <img className="picture-single" onClick={this.handleClick} id={2} src={images[2].url} />
           </div>
           <div className="picture-column">
-            <img className="picture-triple" onClick={this.handleClick} id={3} src={images[3].url}></img>
-            <img className="picture-triple" onClick={this.handleClick} id={4} src={images[4].url}></img>
-            <img className="picture-triple" onClick={this.handleClick} id={5} src={images[5].url}></img>
+            <img className="picture-triple" onClick={this.handleClick} id={3} src={images[3].url} />
+            <img className="picture-triple" onClick={this.handleClick} id={4} src={images[4].url} />
+            <img className="picture-triple" onClick={this.handleClick} id={5} src={images[5].url} />
           </div>
           <div className="picture-column">
-            <img className="picture-triple" onClick={this.handleClick} id={6} src={images[6].url}></img>
-            <img className="picture-triple" onClick={this.handleClick} id={7} src={images[7].url}></img>
-            <img className="picture-last picture-triple" onClick={this.handleClick} id={8} src={images[8].url}></img>
+            <img className="picture-triple" onClick={this.handleClick} id={6} src={images[6].url} />
+            <img className="picture-triple" onClick={this.handleClick} id={7} src={images[7].url} />
+            <img className="picture-last picture-triple" onClick={this.handleClick} id={8} src={images[8].url} />
           </div>
-        </div>  
+        </div>
       </div>
     );
-  } 
+  }
 }
+
+Gallery.propTypes = {
+  images: PropTypes.arrayOf(PropTypes.object),
+};
+
+Gallery.defaultProps = {
+  images: [],
+};
 
 export default Gallery;

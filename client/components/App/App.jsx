@@ -13,7 +13,7 @@ class App extends React.Component {
   componentDidMount() {
     this.getImages();
   }
-  
+    
   getImages() {
     fetch(`/api${window.location.pathname}images`, {
       headers: {
@@ -27,8 +27,9 @@ class App extends React.Component {
   }
 
   render() {
+    const { images } = this.state;
     return (
-      <Gallery images={this.state.images}/> 
+      <Gallery images={images} />
     );
   }
 }
