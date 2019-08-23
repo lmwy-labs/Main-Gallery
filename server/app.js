@@ -11,7 +11,7 @@ app.get('/api/restaurants/:rid/images', (req, res) => {
       console.log(err);
       res.end();
     }
-    
+
     res.status(200).send(docs);
   });
 });
