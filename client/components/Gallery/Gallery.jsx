@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -59,13 +60,13 @@ class Gallery extends React.Component {
     if (selected !== '') {
       bigImage = (
         <div>
-          <div className="grey-out" />
-          <div className="pop-out-container">
-            <button type="button" className="previous-image-button" onClick={this.handlePreviousClick}>{'<'}</button>
-            <img className="big-image" src={images[selected].url} height="526" width="526" />
-            <button type="button" className="tiny-flag">Flag</button>
-            <button type="button" className="next-image-button" onClick={this.handleNextClick}>{'>'}</button>
-            <div onClick={this.closePopupGallery} className="close-pop-out">X</div>
+          <GreyBackground />
+          <div>
+            <ButtonPreviousImage onClick={this.handlePreviousClick}>{'<'}</ButtonPreviousImage>
+            <ImgBig src={images[selected].url} />
+            <ButtonFlag>Flag</ButtonFlag>
+            <ButtonNextImage onClick={this.handleNextClick}>{'>'}</ButtonNextImage>
+            <XButtonPopup onClick={this.closePopupGallery}>X</XButtonPopup>
           </div>
         </div>
       );
@@ -74,25 +75,25 @@ class Gallery extends React.Component {
     return (
       <div>
         {bigImage === undefined ? <div /> : bigImage}
-        <div className="picture-row">
-          <div className="picture-column">
-            <img className="picture-double" onClick={this.handleClick} id={0} src={images[0].url} />
-            <img className="picture-double" onClick={this.handleClick} id={1} src={images[1].url} />
-          </div>
-          <div className="picture-column">
-            <img className="picture-single" onClick={this.handleClick} id={2} src={images[2].url} />
-          </div>
-          <div className="picture-column">
-            <img className="picture-triple" onClick={this.handleClick} id={3} src={images[3].url} />
-            <img className="picture-triple" onClick={this.handleClick} id={4} src={images[4].url} />
-            <img className="picture-triple" onClick={this.handleClick} id={5} src={images[5].url} />
-          </div>
-          <div className="picture-column">
-            <img className="picture-triple" onClick={this.handleClick} id={6} src={images[6].url} />
-            <img className="picture-triple" onClick={this.handleClick} id={7} src={images[7].url} />
-            <img className="picture-last picture-triple" onClick={this.handleClick} id={8} src={images[8].url} />
-          </div>
-        </div>
+        <Row>
+          <Column>
+            <ImgDouble onClick={this.handleClick} id={0} src={images[0].url} />
+            <ImgDouble onClick={this.handleClick} id={1} src={images[1].url} />
+          </Column>
+          <Column>
+            <ImgSingle onClick={this.handleClick} id={2} src={images[2].url} />
+          </Column>
+          <Column>
+            <ImgTriple onClick={this.handleClick} id={3} src={images[3].url} />
+            <ImgTriple onClick={this.handleClick} id={4} src={images[4].url} />
+            <ImgTriple onClick={this.handleClick} id={5} src={images[5].url} />
+          </Column>
+          <Column>
+            <ImgTriple onClick={this.handleClick} id={6} src={images[6].url} />
+            <ImgTriple onClick={this.handleClick} id={7} src={images[7].url} />
+            <ImgLast onClick={this.handleClick} id={8} src={images[8].url} />
+          </Column>
+        </Row>
       </div>
     );
   }
@@ -107,3 +108,99 @@ Gallery.defaultProps = {
 };
 
 export default Gallery;
+
+const Img = styled.img`
+  margin: 1px;
+  cursor: pointer;
+`;
+
+const ImgDouble = styled(Img)`
+  width: 138.57px;
+  @media only screen and (max-width: 767px) {
+    width: 19.6vw
+  }
+`;
+
+const ImgSingle = styled(Img)`
+  width: 278.53px;
+  @media only screen and (max-width: 767px) {
+    width: 39.65vw
+  }
+`;
+
+const ImgTriple = styled(Img)`
+  width: 91.84px;
+  @media only screen and (max-width: 767px) {
+    width: 13vw
+  }
+`;
+
+const ImgLast = styled(ImgTriple)`
+  filter: brightness(50%);
+  &:hover {
+    filter: brightness(25%);
+  }
+  @media only screen and (max-width: 767px) {
+    width: 13vw
+  }
+`;
+
+const ImgBig = styled.img`
+  position: fixed;
+  width: 526px;
+  top: 35px;
+  left: 50%;
+  margin-left: -263px;
+  z-index: 2;
+`;
+
+const Row = styled.div`
+  display: flex;
+`;
+
+const Column = styled.div`
+  display: flex;
+  flex-direction: column
+`;
+
+const GreyBackground = styled.div`
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  background-color:black;
+  opacity: 0.9;
+`;
+
+const ButtonPreviousImage = styled.button`
+  z-index: 2;
+  position: fixed;
+  top: 270px;
+  left: 50%;
+  margin-left: -300px;
+`;
+
+const ButtonNextImage = styled.button`
+  z-index: 2;
+  position: fixed;
+  top: 270px;
+  left: 50%;
+  margin-left: 280px;
+`;
+
+const ButtonFlag = styled.button`
+  z-index: 2;
+  position: fixed;
+  top: 600px;
+  left: 50%;
+  margin-left: 280px;
+`;
+
+const XButtonPopup = styled.div`
+  z-index: 2;
+  position: fixed;
+  top: 20px;
+  right: 10px;
+  color: white;
+  cursor: pointer;
+`;
