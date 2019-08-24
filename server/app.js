@@ -16,8 +16,4 @@ app.get('/api/restaurants/:rid/images', (req, res) => {
   });
 });
 
-app.get('/testEndpoint', (req, res) => {
-  res.status(200).send('success');
-});
-
 module.exports = app;
