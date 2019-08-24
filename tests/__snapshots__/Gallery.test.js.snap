@@ -3,208 +3,280 @@
 exports[`Gallery handles a click event on the first image in the static gallery 1`] = `
 <div>
   <div>
-    <Gallery__GreyBackground />
-    <Gallery__FixedDiv>
-      <ButtonPreviousImage
+    <div
+      className="grey-out"
+    />
+    <div
+      className="pop-out-container"
+    >
+      <button
+        className="previous-image-button"
         onClick={[Function]}
+        type="button"
       >
         &lt;
-      </ButtonPreviousImage>
-      <ImgBig
+      </button>
+      <img
+        className="big-image"
+        height="526"
         src="mockUrl"
+        width="526"
       />
-      <Gallery__ButtonFlag>
-        P
-      </Gallery__ButtonFlag>
-      <ButtonNextImage
+      <button
+        className="tiny-flag"
+        type="button"
+      >
+        Flag
+      </button>
+      <button
+        className="next-image-button"
         onClick={[Function]}
+        type="button"
       >
         &gt;
-      </ButtonNextImage>
-    </Gallery__FixedDiv>
-    <XButtonPopup
-      onClick={[Function]}
-    >
-      X
-    </XButtonPopup>
+      </button>
+      <div
+        className="close-pop-out"
+        onClick={[Function]}
+      >
+        X
+      </div>
+    </div>
   </div>
-  <Gallery__Row>
-    <Gallery__Column>
-      <ImgDouble
+  <div
+    className="picture-row"
+  >
+    <div
+      className="picture-column"
+    >
+      <img
+        className="picture-double"
         id={0}
         onClick={[Function]}
         src="mockUrl"
       />
-      <ImgDouble
+      <img
+        className="picture-double"
         id={1}
         onClick={[Function]}
         src="mockUrl"
       />
-    </Gallery__Column>
-    <Gallery__Column>
-      <ImgSingle
+    </div>
+    <div
+      className="picture-column"
+    >
+      <img
+        className="picture-single"
         id={2}
         onClick={[Function]}
         src="mockUrl"
       />
-    </Gallery__Column>
-    <Gallery__Column>
-      <ImgTriple
+    </div>
+    <div
+      className="picture-column"
+    >
+      <img
+        className="picture-triple"
         id={3}
         onClick={[Function]}
         src="mockUrl"
       />
-      <ImgTriple
+      <img
+        className="picture-triple"
         id={4}
         onClick={[Function]}
         src="mockUrl"
       />
-      <ImgTriple
+      <img
+        className="picture-triple"
         id={5}
         onClick={[Function]}
         src="mockUrl"
       />
-    </Gallery__Column>
-    <Gallery__Column>
-      <ImgTriple
+    </div>
+    <div
+      className="picture-column"
+    >
+      <img
+        className="picture-triple"
         id={6}
         onClick={[Function]}
         src="mockUrl"
       />
-      <ImgTriple
+      <img
+        className="picture-triple"
         id={7}
         onClick={[Function]}
         src="mockUrl"
       />
-      <ImgLast
+      <img
+        className="picture-last picture-triple"
         id={8}
         onClick={[Function]}
         src="mockUrl"
       />
-    </Gallery__Column>
-  </Gallery__Row>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`Gallery renders 9 image elements when passed an images array of length 9 or more 1`] = `
 <div>
   <div />
-  <Gallery__Row>
-    <Gallery__Column>
-      <ImgDouble
+  <div
+    className="picture-row"
+  >
+    <div
+      className="picture-column"
+    >
+      <img
+        className="picture-double"
         id={0}
         onClick={[Function]}
         src="mockUrl"
       />
-      <ImgDouble
+      <img
+        className="picture-double"
         id={1}
         onClick={[Function]}
         src="mockUrl"
       />
-    </Gallery__Column>
-    <Gallery__Column>
-      <ImgSingle
+    </div>
+    <div
+      className="picture-column"
+    >
+      <img
+        className="picture-single"
         id={2}
         onClick={[Function]}
         src="mockUrl"
       />
-    </Gallery__Column>
-    <Gallery__Column>
-      <ImgTriple
+    </div>
+    <div
+      className="picture-column"
+    >
+      <img
+        className="picture-triple"
         id={3}
         onClick={[Function]}
         src="mockUrl"
       />
-      <ImgTriple
+      <img
+        className="picture-triple"
         id={4}
         onClick={[Function]}
         src="mockUrl"
       />
-      <ImgTriple
+      <img
+        className="picture-triple"
         id={5}
         onClick={[Function]}
         src="mockUrl"
       />
-    </Gallery__Column>
-    <Gallery__Column>
-      <ImgTriple
+    </div>
+    <div
+      className="picture-column"
+    >
+      <img
+        className="picture-triple"
         id={6}
         onClick={[Function]}
         src="mockUrl"
       />
-      <ImgTriple
+      <img
+        className="picture-triple"
         id={7}
         onClick={[Function]}
         src="mockUrl"
       />
-      <ImgLast
+      <img
+        className="picture-last picture-triple"
         id={8}
         onClick={[Function]}
         src="mockUrl"
       />
-    </Gallery__Column>
-  </Gallery__Row>
+    </div>
+  </div>
 </div>
 `;
 
 exports[`Gallery renders 9 image elements when passed an images array of length 9 or more 2`] = `
 <div>
   <div />
-  <Gallery__Row>
-    <Gallery__Column>
-      <ImgDouble
+  <div
+    className="picture-row"
+  >
+    <div
+      className="picture-column"
+    >
+      <img
+        className="picture-double"
         id={0}
         onClick={[Function]}
         src="mockUrl"
       />
-      <ImgDouble
+      <img
+        className="picture-double"
         id={1}
         onClick={[Function]}
         src="mockUrl"
       />
-    </Gallery__Column>
-    <Gallery__Column>
-      <ImgSingle
+    </div>
+    <div
+      className="picture-column"
+    >
+      <img
+        className="picture-single"
         id={2}
         onClick={[Function]}
         src="mockUrl"
       />
-    </Gallery__Column>
-    <Gallery__Column>
-      <ImgTriple
+    </div>
+    <div
+      className="picture-column"
+    >
+      <img
+        className="picture-triple"
         id={3}
         onClick={[Function]}
         src="mockUrl"
       />
-      <ImgTriple
+      <img
+        className="picture-triple"
         id={4}
         onClick={[Function]}
         src="mockUrl"
       />
-      <ImgTriple
+      <img
+        className="picture-triple"
         id={5}
         onClick={[Function]}
         src="mockUrl"
       />
-    </Gallery__Column>
-    <Gallery__Column>
-      <ImgTriple
+    </div>
+    <div
+      className="picture-column"
+    >
+      <img
+        className="picture-triple"
         id={6}
         onClick={[Function]}
         src="mockUrl"
       />
-      <ImgTriple
+      <img
+        className="picture-triple"
         id={7}
         onClick={[Function]}
         src="mockUrl"
       />
-      <ImgLast
+      <img
+        className="picture-last picture-triple"
         id={8}
         onClick={[Function]}
         src="mockUrl"
       />
-    </Gallery__Column>
-  </Gallery__Row>
+    </div>
+  </div>
 </div>
 `;
 
