@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
-import Gallery from './Gallery.jsx';
+import Gallery from '../client/components/Gallery.jsx';
 
 describe('Gallery', () => {
   it('renders nothing when passed an empty images array', () => {
