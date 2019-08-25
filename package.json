@@ -55,7 +55,6 @@
   "jest": {
     "setupFilesAfterEnv": [
       "./setupTests.js"
-    ],
-    "testEnvironment": "node"
+    ]
   }
 }

@@ -80,6 +80,5 @@ describe('Gallery', () => {
 
     closePopoutDiv.simulate('click');
     expect(wrapper.find('.big-image').length).toEqual(0);
-
   });
 });
