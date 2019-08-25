@@ -6,7 +6,7 @@ import Gallery from './Gallery.jsx';
 describe('Gallery', () => {
   it('renders nothing when passed an empty images array', () => {
     const wrapper = shallow(
-      <Gallery imags={[]} />,
+      <Gallery images={[]} />,
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
     expect(wrapper.type()).toEqual(null);
