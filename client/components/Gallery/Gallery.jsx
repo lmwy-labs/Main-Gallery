@@ -64,7 +64,7 @@ class Gallery extends React.Component {
           <div>
             <ButtonPreviousImage onClick={this.handlePreviousClick}>{'<'}</ButtonPreviousImage>
             <ImgBig src={images[selected].url} />
-            <ButtonFlag>Flag</ButtonFlag>
+            <ButtonFlag>P</ButtonFlag>
             <ButtonNextImage onClick={this.handleNextClick}>{'>'}</ButtonNextImage>
             <XButtonPopup onClick={this.closePopupGallery}>X</XButtonPopup>
           </div>
@@ -182,32 +182,42 @@ const GreyBackground = styled.div`
   opacity: 0.9;
 `;
 
-const ButtonPreviousImage = styled.button`
+const ButtonGalleryNav = styled.div`
   z-index: 2;
   position: fixed;
-  top: 270px;
+  top: 300px;
+  color: #91949a;
+  cursor: pointer;
+  font-size:25px;
+  :hover {
+    filter: brightness(75%);
+  }
   left: 50%;
-  margin-left: -300px;
+`;
+
+const ButtonPreviousImage = styled(ButtonGalleryNav)`
+  margin-left: -314px;
 `;
 
 ButtonPreviousImage.displayName = 'ButtonPreviousImage';
 
-const ButtonNextImage = styled.button`
-  z-index: 2;
-  position: fixed;
-  top: 270px;
-  left: 50%;
-  margin-left: 280px;
+const ButtonNextImage = styled(ButtonGalleryNav)`
+  margin-left: 300px;
 `;
 
 ButtonNextImage.displayName = 'ButtonNextImage';
 
-const ButtonFlag = styled.button`
+const ButtonFlag = styled.div`
   z-index: 2;
   position: fixed;
-  top: 600px;
+  top: 560px;
   left: 50%;
   margin-left: 280px;
+  color: white;
+  font-size: 30px;
+  font-family: pantheon;
+  cursor: default;
+  font-weight: bold;
 `;
 
 const XButtonPopup = styled.div`
