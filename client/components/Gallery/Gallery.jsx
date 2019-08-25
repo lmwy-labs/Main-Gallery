@@ -121,6 +121,8 @@ const ImgDouble = styled(Img)`
   }
 `;
 
+ImgDouble.displayName = 'ImgDouble';
+
 const ImgSingle = styled(Img)`
   width: 278.53px;
   @media only screen and (max-width: 767px) {
@@ -128,12 +130,16 @@ const ImgSingle = styled(Img)`
   }
 `;
 
+ImgSingle.displayName = 'ImgSingle';
+
 const ImgTriple = styled(Img)`
   width: 91.84px;
   @media only screen and (max-width: 767px) {
     width: 13vw
   }
 `;
+
+ImgTriple.displayName = 'ImgTriple';
 
 const ImgLast = styled(ImgTriple)`
   filter: brightness(50%);
@@ -145,6 +151,8 @@ const ImgLast = styled(ImgTriple)`
   }
 `;
 
+ImgLast.displayName = 'ImgLast';
+
 const ImgBig = styled.img`
   position: fixed;
   width: 526px;
@@ -153,6 +161,8 @@ const ImgBig = styled.img`
   margin-left: -263px;
   z-index: 2;
 `;
+
+ImgBig.displayName = 'ImgBig';
 
 const Row = styled.div`
   display: flex;
@@ -180,6 +190,8 @@ const ButtonPreviousImage = styled.button`
   margin-left: -300px;
 `;
 
+ButtonPreviousImage.displayName = 'ButtonPreviousImage';
+
 const ButtonNextImage = styled.button`
   z-index: 2;
   position: fixed;
@@ -187,6 +199,8 @@ const ButtonNextImage = styled.button`
   left: 50%;
   margin-left: 280px;
 `;
+
+ButtonNextImage.displayName = 'ButtonNextImage';
 
 const ButtonFlag = styled.button`
   z-index: 2;
@@ -204,3 +218,5 @@ const XButtonPopup = styled.div`
   color: white;
   cursor: pointer;
 `;
+
+XButtonPopup.displayName = 'XButtonPopup';

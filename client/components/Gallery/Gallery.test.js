@@ -3,11 +3,10 @@ import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import Gallery from './Gallery.jsx';
 
-
 describe('Gallery', () => {
   it('renders nothing when passed an empty images array', () => {
     const wrapper = shallow(
-      <Gallery images={[]} />,
+      <Gallery imags={[]} />,
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
     expect(wrapper.type()).toEqual(null);
@@ -30,17 +29,19 @@ describe('Gallery', () => {
       <Gallery images={testData} />,
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
-    expect(wrapper.find('img').length).toEqual(9);
+    expect(wrapper.find('ImgDouble').length).toEqual(2);
+    expect(wrapper.find('ImgTriple').length).toEqual(5);
+    expect(wrapper.find('ImgSingle').length).toEqual(1);
+    expect(wrapper.find('ImgLast').length).toEqual(1);
     testData.push({ url: 'mockUrl' });
     expect(shallowToJson(wrapper)).toMatchSnapshot();
-    expect(wrapper.find('img').length).toEqual(9);
   });
 
   it('handles a click event on the first image in the static gallery', () => {
     const wrapper = shallow(
       <Gallery images={testData} />,
     );
-    const image = wrapper.find('img').first();
+    const image = wrapper.find('ImgDouble').first();
     image.props().onClick({
       target: {
         id: 1,
@@ -55,15 +56,15 @@ describe('Gallery', () => {
     const wrapper = shallow(
       <Gallery images={testData} />,
     );
-    const image = wrapper.find('img').first();
+    const image = wrapper.find('ImgDouble').first();
     image.props().onClick({
       target: {
         id: 0,
       },
     });
-    const nextButton = wrapper.find('.next-image-button');
-    const previousButton = wrapper.find('.previous-image-button');
-    const closePopoutDiv = wrapper.find('.close-pop-out');
+    const nextButton = wrapper.find('ButtonNextImage');
+    const previousButton = wrapper.find('ButtonPreviousImage');
+    const closePopoutDiv = wrapper.find('XButtonPopup');
 
     previousButton.simulate('click');
     expect(wrapper.state('selected')).toEqual(0);
