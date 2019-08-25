@@ -61,13 +61,13 @@ class Gallery extends React.Component {
       bigImage = (
         <div>
           <GreyBackground />
-          <div>
+          <FixedDiv>
             <ButtonPreviousImage onClick={this.handlePreviousClick}>{'<'}</ButtonPreviousImage>
             <ImgBig src={images[selected].url} />
             <ButtonFlag>P</ButtonFlag>
             <ButtonNextImage onClick={this.handleNextClick}>{'>'}</ButtonNextImage>
-            <XButtonPopup onClick={this.closePopupGallery}>X</XButtonPopup>
-          </div>
+          </FixedDiv>
+          <XButtonPopup onClick={this.closePopupGallery}>X</XButtonPopup>
         </div>
       );
     }
@@ -108,6 +108,15 @@ Gallery.defaultProps = {
 };
 
 export default Gallery;
+
+const Row = styled.div`
+  display: flex;
+`;
+
+const Column = styled.div`
+  display: flex;
+  flex-direction: column
+`;
 
 const Img = styled.img`
   margin: 1px;
@@ -153,26 +162,6 @@ const ImgLast = styled(ImgTriple)`
 
 ImgLast.displayName = 'ImgLast';
 
-const ImgBig = styled.img`
-  position: fixed;
-  width: 526px;
-  top: 35px;
-  left: 50%;
-  margin-left: -263px;
-  z-index: 2;
-`;
-
-ImgBig.displayName = 'ImgBig';
-
-const Row = styled.div`
-  display: flex;
-`;
-
-const Column = styled.div`
-  display: flex;
-  flex-direction: column
-`;
-
 const GreyBackground = styled.div`
   position: fixed;
   width: 100%;
@@ -182,9 +171,40 @@ const GreyBackground = styled.div`
   opacity: 0.9;
 `;
 
+const FixedDiv = styled.div`
+  position: fixed;
+  top: 55px;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  width: 236px;
+  height: 266px;
+  @media only screen and (min-width: 641px) {
+    width: 336px;
+    height: 336px;
+  }
+  @media only screen and (min-width: 1025px) {
+    width: 526px;
+    height: 526px;
+  }
+`;
+
+const ImgBig = styled.img`
+  width: 236px;
+  @media only screen and (min-width: 641px) {
+    width: 336px;
+  }
+  @media only screen and (min-width: 1025px) {
+    width: 526px;
+  }
+`;
+
+ImgBig.displayName = 'ImgBig';
+
 const ButtonGalleryNav = styled.div`
   z-index: 2;
-  position: fixed;
   top: 300px;
   color: #91949a;
   cursor: pointer;
@@ -192,41 +212,58 @@ const ButtonGalleryNav = styled.div`
   :hover {
     filter: brightness(75%);
   }
-  left: 50%;
+  position: fixed;
+  top: 150px;
+  @media only screen and (min-width: 641px) {
+    top: 220px;
+  }
+  @media only screen and (min-width: 1025px) {
+    top: 310px;
+  }
 `;
 
 const ButtonPreviousImage = styled(ButtonGalleryNav)`
-  margin-left: -314px;
+  margin-left: -60px;
 `;
 
 ButtonPreviousImage.displayName = 'ButtonPreviousImage';
 
 const ButtonNextImage = styled(ButtonGalleryNav)`
-  margin-left: 300px;
+  margin-left: 281px;
+  @media only screen and (min-width: 641px) {
+    margin-left: 381px;
+  }
+  @media only screen and (min-width: 1025px) {
+    margin-left: 571px;
+  }
 `;
 
 ButtonNextImage.displayName = 'ButtonNextImage';
 
 const ButtonFlag = styled.div`
   z-index: 2;
-  position: fixed;
-  top: 560px;
-  left: 50%;
-  margin-left: 280px;
   color: white;
   font-size: 30px;
   font-family: pantheon;
   cursor: default;
   font-weight: bold;
+  margin-left: 250px;
+  @media only screen and (min-width: 641px) {
+    margin-left: 350px;
+  }
+  @media only screen and (min-width: 1025px) {
+    margin-left: 540px;
+  }
 `;
 
 const XButtonPopup = styled.div`
   z-index: 2;
   position: fixed;
-  top: 20px;
-  right: 10px;
-  color: white;
+  top: 35px;
+  right: 20px;
   cursor: pointer;
+  color: #91949a;
+  font-size: 28px;
 `;
 
 XButtonPopup.displayName = 'XButtonPopup';
