@@ -2,10 +2,6 @@ import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
 import Gallery from '../client/components/Gallery.jsx';
-<<<<<<< HEAD:tests/Gallery.test.js
-=======
-
->>>>>>> Moved test files to test folder in root:client/components/Gallery/Gallery.test.js
 
 describe('Gallery', () => {
   it('renders nothing when passed an empty images array', () => {
