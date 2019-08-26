@@ -24,35 +24,37 @@ db.once('open', () => {
     }
   });
 
-  const seedImagesForRestaurant = (rid) => {
-    if (rid > 100) {
-      console.log('Completed!');
-      mongoose.disconnect();
-      return;
-    }
+  const randomNumbers = [];
+  for (let i = 0; i < 101; i += 1) {
+    randomNumbers.push(Math.floor(Math.random() * 91) + 10);
+  }
 
-    const save = (i) => {
-      if (i > 20) {
-        console.log(`Seeded r${rid}`);
-        seedImagesForRestaurant(rid + 1);
-        return;
+  const seedRestaurantFxns = [];
+  for (let rid = 1; rid < 101; rid += 1) {
+    const seedRestaurantFxn = () => {
+      const saveDocumentFxns = [];
+      for (let i = 0; i < randomNumbers[rid]; i += 1) {
+        const saveDocumentFxn = () => {
+          const image = new Image({
+            url: i % 2 === 0 ? `https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/${rid}.jpg` : 'https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/2.jpeg',
+            restaurantId: `r${rid}`,
+          });
+          image.save((err) => {
+            if (err) {
+              console.log(err);
+            }
+          });
+        };
+        saveDocumentFxns.push(saveDocumentFxn);
       }
-
-      const image = new Image({
-        url: i % 2 === 1 ? `https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/${rid}.jpg` : 'https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/2.jpeg',
-        restaurantId: `r${rid}`,
-      });
-      image.save((err) => {
-        if (err) {
-          console.log(err);
-        } else {
-          save(i + 1);
-        }
-      });
+      saveDocumentFxns.reduce((p, f) => p.then(f), Promise.resolve());
     };
+    seedRestaurantFxns.push(seedRestaurantFxn);
+  }
 
-    save(1);
-  };
-
-  seedImagesForRestaurant(1);
+  seedRestaurantFxns.reduce((p, f) => p.then(f), Promise.resolve());
+  setTimeout(() => {
+    console.log('Completed');
+    mongoose.disconnect();
+  });
 });
