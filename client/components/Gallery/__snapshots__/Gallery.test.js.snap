@@ -4,7 +4,7 @@ exports[`Gallery handles a click event on the first image in the static gallery 
 <div>
   <div>
     <Gallery__GreyBackground />
-    <div>
+    <Gallery__FixedDiv>
       <ButtonPreviousImage
         onClick={[Function]}
       >
@@ -14,19 +14,19 @@ exports[`Gallery handles a click event on the first image in the static gallery 
         src="mockUrl"
       />
       <Gallery__ButtonFlag>
-        Flag
+        P
       </Gallery__ButtonFlag>
       <ButtonNextImage
         onClick={[Function]}
       >
         &gt;
       </ButtonNextImage>
-      <XButtonPopup
-        onClick={[Function]}
-      >
-        X
-      </XButtonPopup>
-    </div>
+    </Gallery__FixedDiv>
+    <XButtonPopup
+      onClick={[Function]}
+    >
+      X
+    </XButtonPopup>
   </div>
   <Gallery__Row>
     <Gallery__Column>
