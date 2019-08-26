@@ -13,12 +13,26 @@ class Gallery extends React.Component {
     this.handleNextClick = this.handleNextClick.bind(this);
     this.handlePreviousClick = this.handlePreviousClick.bind(this);
     this.closePopupGallery = this.closePopupGallery.bind(this);
+    this.handleKeypress = this.handleKeypress.bind(this);
   }
 
   handleClick(e) {
     this.setState({
       selected: e.target.id,
     });
+    document.addEventListener('keydown', this.handleKeypress);
+  }
+
+  handleKeypress(event) {
+    switch (event.key) {
+      case 'ArrowRight':
+        this.handleNextClick();
+        break;
+      case 'ArrowLeft':
+        this.handlePreviousClick();
+        break;
+      default:
+    }
   }
 
   handleNextClick() {
@@ -47,6 +61,7 @@ class Gallery extends React.Component {
     this.setState({
       selected: '',
     });
+    document.removeEventListener('keydown', this.handleKeypress);
   }
 
   render() {

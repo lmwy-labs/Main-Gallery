@@ -80,6 +80,26 @@ describe('Gallery', () => {
 
     closePopoutDiv.simulate('click');
     expect(wrapper.find('.big-image').length).toEqual(0);
+  });
 
+  it('handles keypress events to navigate through the popup gallery', () => {
+    const wrapper = shallow(
+      <Gallery images={testData} />,
+    );
+    const image = wrapper.find('ImgDouble').first();
+    const map = {};
+    document.addEventListener = jest.fn((event, cb) => {
+      map[event] = cb;
+    });
+    image.props().onClick({
+      target: {
+        id: 0,
+      },
+    });
+    expect(wrapper.state('selected')).toEqual(0);
+    map.keydown({ key: 'ArrowRight' });
+    expect(wrapper.state('selected')).toEqual(1);
+    map.keydown({ key: 'ArrowLeft' });
+    expect(wrapper.state('selected')).toEqual(0);
   });
 });
