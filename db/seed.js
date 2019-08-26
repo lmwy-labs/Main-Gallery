@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const faker = require('faker');
+const axios = require('axios');
 
 mongoose.connect('mongodb://localhost/otimages', { useNewUrlParser: true });
 
@@ -29,6 +31,8 @@ db.once('open', () => {
     randomNumbers.push(Math.floor(Math.random() * 91) + 10);
   }
 
+  const sources = ['OpenTable Diner', 'Restaurant', 'Foodspotting'];
+
   const seedRestaurantFxns = [];
   for (let rid = 1; rid < 101; rid += 1) {
     const seedRestaurantFxn = () => {
@@ -38,6 +42,11 @@ db.once('open', () => {
           const image = new Image({
             url: i % 2 === 0 ? `https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/${rid}.jpg` : 'https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/2.jpeg',
             restaurantId: `r${rid}`,
+            source: sources[Math.floor(Math.random() * 3)],
+            photographer: faker.name.findName(),
+            date: faker.date.past(2),
+            name: faker.random.words(Math.floor(Math.random() * 7) + 3),
+
           });
           image.save((err) => {
             if (err) {
@@ -54,7 +63,7 @@ db.once('open', () => {
 
   seedRestaurantFxns.reduce((p, f) => p.then(f), Promise.resolve());
   setTimeout(() => {
-    console.log('Completed');
+    console.log('Please wait...');
     mongoose.disconnect();
   });
 });
