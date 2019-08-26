@@ -106,4 +106,19 @@ describe('Gallery', () => {
     map.keydown({ key: 'A' });
     expect(wrapper.state('selected')).toEqual(0);
   });
+
+  it('renders a flag popup when the flag button is clicked', () => {
+    const wrapper = shallow(
+      <Gallery images={testData} />,
+    );
+    const image = wrapper.find('ImgDouble').first();
+    image.props().onClick({
+      target: {
+        id: 0,
+      },
+    });
+    const flagButton = wrapper.find('ButtonFlag');
+    flagButton.simulate('click');
+    const flagPopup = wrapper.find('FlagPopup');
+  });
 });

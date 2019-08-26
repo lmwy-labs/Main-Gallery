@@ -13,9 +13,9 @@ exports[`Gallery handles a click event on the first image in the static gallery 
       <ImgBig
         src="mockUrl"
       />
-      <Gallery__ButtonFlag>
+      <ButtonFlag>
         P
-      </Gallery__ButtonFlag>
+      </ButtonFlag>
       <ButtonNextImage
         onClick={[Function]}
       >

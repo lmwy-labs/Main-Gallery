@@ -271,6 +271,8 @@ const ButtonFlag = styled.div`
   }
 `;
 
+ButtonFlag.displayName = 'ButtonFlag';
+
 const XButtonPopup = styled.div`
   z-index: 2;
   position: fixed;
