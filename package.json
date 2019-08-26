@@ -13,7 +13,7 @@
     "start": "node server/index.js",
     "start:dev": "nodemon server/server.js -w",
     "test": "jest",
-    "seed": "node db/index.js"
+    "seed": "node db/seed.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
