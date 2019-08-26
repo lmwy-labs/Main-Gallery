@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 import { shallow } from 'enzyme';
 import { shallowToJson } from 'enzyme-to-json';
@@ -6,6 +7,7 @@ import Gallery from '../client/components/Gallery.jsx';
 describe('Gallery', () => {
   it('renders nothing when passed an empty images array', () => {
     const wrapper = shallow(
+      // eslint-disable-next-line react/jsx-filename-extension
       <Gallery images={[]} />,
     );
     expect(shallowToJson(wrapper)).toMatchSnapshot();
@@ -47,7 +49,7 @@ describe('Gallery', () => {
         id: 1,
       },
     });
-    
+
     expect(shallowToJson(wrapper)).toMatchSnapshot();
     expect(wrapper.state('selected')).toEqual(1);
   });
@@ -70,7 +72,7 @@ describe('Gallery', () => {
     expect(wrapper.state('selected')).toEqual(0);
     nextButton.simulate('click');
     expect(wrapper.state('selected')).toEqual(1);
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 8; i += 1) {
       nextButton.simulate('click');
     }
 
@@ -100,6 +102,8 @@ describe('Gallery', () => {
     map.keydown({ key: 'ArrowRight' });
     expect(wrapper.state('selected')).toEqual(1);
     map.keydown({ key: 'ArrowLeft' });
+    expect(wrapper.state('selected')).toEqual(0);
+    map.keydown({ key: 'A' });
     expect(wrapper.state('selected')).toEqual(0);
   });
 });
