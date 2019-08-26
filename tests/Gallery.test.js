@@ -101,5 +101,7 @@ describe('Gallery', () => {
     expect(wrapper.state('selected')).toEqual(1);
     map.keydown({ key: 'ArrowLeft' });
     expect(wrapper.state('selected')).toEqual(0);
+    map.keydown({ key: 'A' });
+    expect(wrapper.state('selected')).toEqual(0);
   });
 });

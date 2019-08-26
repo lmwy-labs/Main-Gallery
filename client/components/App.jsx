@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import Gallery from './Gallery.jsx';
 
 class App extends React.Component {
@@ -15,14 +16,16 @@ class App extends React.Component {
   }
 
   getImages() {
-    fetch(`/api${window.location.pathname}images`, {
+    axios.get(`/api${window.location.pathname}images`, {
       headers: {
         'Content-Type': 'application/json',
       },
     })
-      .then((response) => response.json())
-      .then((images) => {
-        this.setState({ images });
+      .then((response) => {
+        this.setState({ images: response.data });
+      })
+      .catch((err) => {
+        console.log(err);
       });
   }
 
