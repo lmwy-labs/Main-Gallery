@@ -4,6 +4,7 @@ exports[`Gallery handles a click event on the first image in the static gallery 
 <div>
   <div>
     <Gallery__GreyBackground />
+    <div />
     <Gallery__FixedDiv>
       <ButtonPreviousImage
         onClick={[Function]}
@@ -13,8 +14,23 @@ exports[`Gallery handles a click event on the first image in the static gallery 
       <ImgBig
         src="mockUrl"
       />
-      <ButtonFlag>
-        P
+      <ButtonFlag
+        onClick={[Function]}
+      >
+        <svg
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M485,475H469v12h-2V463h18l-3,6Zm-16-10v8h13l-2-4,2-4H469Z"
+            data-name="24. Tiny Flag Icon"
+            fill="#fff"
+            id="_24._Tiny_Flag_Icon"
+            transform="translate(-464 -463)"
+          />
+        </svg>
       </ButtonFlag>
       <ButtonNextImage
         onClick={[Function]}

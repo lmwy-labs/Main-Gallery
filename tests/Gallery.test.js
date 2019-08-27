@@ -111,14 +111,31 @@ describe('Gallery', () => {
     const wrapper = shallow(
       <Gallery images={testData} />,
     );
+    const flagPopup = wrapper.find('FlagPopup');
+    expect(flagPopup.length).toBe(0);
     const image = wrapper.find('ImgDouble').first();
+    image.props().onClick({
+      target: {
+        id: 1,
+      },
+    });
+    const flagButton = wrapper.find('ButtonFlag');
+    flagButton.simulate('click');
+    expect(wrapper.find('FlagPopup').length).toBe(1);
+    expect(wrapper.state('selected')).toEqual(1);
+    const nextButton = wrapper.find('ButtonNextImage');
+    nextButton.simulate('click');
+    expect(wrapper.state('selected')).toEqual(1);
+    const previousButton = wrapper.find('ButtonPreviousImage');
+    previousButton.simulate('click');
+    expect(wrapper.state('selected')).toEqual(1);
+    wrapper.find('XButtonPopup').simulate('click');
+    expect(wrapper.find('FlagPopup').length).toBe(0);
     image.props().onClick({
       target: {
         id: 0,
       },
     });
-    const flagButton = wrapper.find('ButtonFlag');
-    flagButton.simulate('click');
-    const flagPopup = wrapper.find('FlagPopup');
+    expect(wrapper.find('FlagPopup').length).toBe(0);
   });
 });

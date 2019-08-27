@@ -1,12 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import FlagPopup from './FlagPopup.jsx';
 
 class Gallery extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       selected: '',
+      flagged: false,
+      canNavigate: false,
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -14,11 +17,13 @@ class Gallery extends React.Component {
     this.handlePreviousClick = this.handlePreviousClick.bind(this);
     this.closePopupGallery = this.closePopupGallery.bind(this);
     this.handleKeypress = this.handleKeypress.bind(this);
+    this.handleFlagClick = this.handleFlagClick.bind(this);
   }
 
   handleClick(e) {
     this.setState({
       selected: e.target.id,
+      canNavigate: true,
     });
     document.addEventListener('keydown', this.handleKeypress);
   }
@@ -60,13 +65,22 @@ class Gallery extends React.Component {
   closePopupGallery() {
     this.setState({
       selected: '',
+      flagged: false,
+    });
+    document.removeEventListener('keydown', this.handleKeypress);
+  }
+
+  handleFlagClick() {
+    this.setState({
+      flagged: true,
+      canNavigate: false,
     });
     document.removeEventListener('keydown', this.handleKeypress);
   }
 
   render() {
     const { images } = this.props;
-    const { selected } = this.state;
+    const { selected, flagged, canNavigate } = this.state;
     if (images.length === 0) {
       return null;
     }
@@ -76,11 +90,16 @@ class Gallery extends React.Component {
       bigImage = (
         <div>
           <GreyBackground />
+          {flagged ? <FlagPopup /> : <div />}
           <FixedDiv>
-            <ButtonPreviousImage onClick={this.handlePreviousClick}>{'<'}</ButtonPreviousImage>
+            <ButtonPreviousImage onClick={canNavigate ? this.handlePreviousClick : ''}>{'<'}</ButtonPreviousImage>
             <ImgBig src={images[selected].url} />
-            <ButtonFlag>P</ButtonFlag>
-            <ButtonNextImage onClick={this.handleNextClick}>{'>'}</ButtonNextImage>
+            <ButtonFlag onClick={this.handleFlagClick}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path id="_24._Tiny_Flag_Icon" fill="#fff" data-name="24. Tiny Flag Icon" d="M485,475H469v12h-2V463h18l-3,6Zm-16-10v8h13l-2-4,2-4H469Z" transform="translate(-464 -463)" />
+              </svg>
+            </ButtonFlag>
+            <ButtonNextImage onClick={canNavigate ? this.handleNextClick : ''}>{'>'}</ButtonNextImage>
           </FixedDiv>
           <XButtonPopup onClick={this.closePopupGallery}>X</XButtonPopup>
         </div>
