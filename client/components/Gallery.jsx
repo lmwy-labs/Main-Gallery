@@ -109,6 +109,7 @@ class Gallery extends React.Component {
               </svg>
             </ButtonFlag>
             <ButtonNextImage onClick={canNavigate ? this.handleNextClick : () => {}}>{'>'}</ButtonNextImage>
+            <ImageInfo image={images[selected]}>Here is some image info</ImageInfo>
           </FixedDiv>
           <XButtonPopup onClick={this.closePopupGallery}>X</XButtonPopup>
         </div>
@@ -310,5 +311,12 @@ const XButtonPopup = styled.div`
   color: #91949a;
   font-size: 28px;
 `;
+
+const ImageInfo = styled.div`
+  z-index: 2;
+  color: white;
+`;
+
+ImageInfo.displayName = 'ImageInfo';
 
 XButtonPopup.displayName = 'XButtonPopup';
