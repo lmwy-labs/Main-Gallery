@@ -80,7 +80,6 @@ class Gallery extends React.Component {
   }
 
   closeFlagPopup() {
-    console.log('closing flag?');
     this.setState({
       flagged: false,
       canNavigate: true,

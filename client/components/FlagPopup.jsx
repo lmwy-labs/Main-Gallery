@@ -51,7 +51,6 @@ Header.displayName = 'Header';
 
 const FlagPopup = ({ closeFlagPopup }) => {
   const handleClick = () => {
-    console.log('clicked');
     closeFlagPopup();
   };
 
