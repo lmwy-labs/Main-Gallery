@@ -1,38 +1,61 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropType from 'prop-types';
+import convertDate from '../utils/convertDate.js';
 
 const Container = styled.div`
   z-index: 2;
   color: white;
+  margin-top: -30px;
 `;
-
-const Name = styled.div`
-`;
-Name.displayName = 'Name';
 
 const Photographer = styled.div`
+  margin-left: -30px;
+  font-size: 15px;
 `;
+
 Photographer.displayName = 'Photographer';
 
-const Date = styled.div`
+const Name = styled.div`
+  margin-left: -30px;
+  font-weight: bold;
 `;
+
+Name.displayName = 'Name';
+
+const Date = styled.span`
+  padding-left: 5px;
+  font-weight: normal;
+`;
+
 Date.displayName = 'Date';
 
+const OTName = styled.div`
+  font-weight: bold;
+  margin-top: -45px;
+  margin-left: 30px;
+`;
+OTName.displayName = 'OTName';
+
+const OTDate = styled.div`
+  padding-top: 10px;
+  margin-left: 30px;
+`;
+OTDate.displayName = 'OTDate';
+
 const Svg = styled.svg`
+  margin-left: -25px;
 `;
 Svg.displayName = 'Svg';
 
 const ImageInfo = ({ image }) => {
-  if (image.source === 'Restaurant') {
-    return null;
-  }
-
   if (image.source === 'Foodspotting') {
     return (
       <Container>
-        <Name>{image.name}</Name>
-        <Date>{image.date}</Date>
+        <Name>
+          {image.name}
+          <Date>{convertDate(image.date, '.')}</Date>
+        </Name>
         <Photographer>Photo from {image.photographer} on Foodspotting</Photographer>
       </Container>
     );
@@ -45,11 +68,13 @@ const ImageInfo = ({ image }) => {
           <circle cx="25" cy="25" fill="#56D7D9" r="25" />
           <text dy=".3em" fill="white" fontFamily="Arial" fontSize="15px" textAnchor="middle" x="50%" y="50%">OT</text>
         </Svg>
-        <Name>OpenTable Diner</Name>
-        <Date>Dined on {image.date}</Date>
+        <OTName>OpenTable Diner</OTName>
+        <OTDate>Dined on {convertDate(image.date, ',')}</OTDate>
       </Container>
     );
   }
+
+  return null;
 };
 
 ImageInfo.propTypes = {

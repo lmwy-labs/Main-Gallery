@@ -6,8 +6,8 @@ import ImageInfo from '../client/components/ImageInfo.jsx';
 describe('ImageInfo', () => {
   const testData = [
     { source: 'Restaurant' },
-    { source: 'Foodspotting' },
-    { source: 'OpenTable Diner' },
+    { source: 'Foodspotting', date: new Date().toISOString() },
+    { source: 'OpenTable Diner', date: new Date().toISOString() },
   ];
 
   test('should render nothing if the source is restaurant', () => {
@@ -28,7 +28,7 @@ describe('ImageInfo', () => {
     const wrapper = mount(<ImageInfo image={testData[2]} />);
     expect(wrapper.props().image.source).toBe('OpenTable Diner');
     expect(wrapper.find('Svg').length).toBe(1);
-    expect(wrapper.find('Name').length).toBe(1);
-    expect(wrapper.find('Date').length).toBe(1);
+    expect(wrapper.find('OTName').length).toBe(1);
+    expect(wrapper.find('OTDate').length).toBe(1);
   });
 });
