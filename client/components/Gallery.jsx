@@ -18,6 +18,7 @@ class Gallery extends React.Component {
     this.closePopupGallery = this.closePopupGallery.bind(this);
     this.handleKeypress = this.handleKeypress.bind(this);
     this.handleFlagClick = this.handleFlagClick.bind(this);
+    this.closeFlagPopup = this.closeFlagPopup.bind(this);
   }
 
   handleClick(e) {
@@ -78,6 +79,15 @@ class Gallery extends React.Component {
     document.removeEventListener('keydown', this.handleKeypress);
   }
 
+  closeFlagPopup() {
+    console.log('closing flag?');
+    this.setState({
+      flagged: false,
+      canNavigate: true,
+    });
+    document.addEventListener('keydown', this.handleKeypress);
+  }
+
   render() {
     const { images } = this.props;
     const { selected, flagged, canNavigate } = this.state;
@@ -90,16 +100,16 @@ class Gallery extends React.Component {
       bigImage = (
         <div>
           <GreyBackground />
-          {flagged ? <FlagPopup /> : <div />}
+          {flagged ? <FlagPopup closeFlagPopup={this.closeFlagPopup} /> : <div />}
           <FixedDiv>
-            <ButtonPreviousImage onClick={canNavigate ? this.handlePreviousClick : ''}>{'<'}</ButtonPreviousImage>
+            <ButtonPreviousImage onClick={canNavigate ? this.handlePreviousClick : () => {}}>{'<'}</ButtonPreviousImage>
             <ImgBig src={images[selected].url} />
             <ButtonFlag onClick={this.handleFlagClick}>
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path id="_24._Tiny_Flag_Icon" fill="#fff" data-name="24. Tiny Flag Icon" d="M485,475H469v12h-2V463h18l-3,6Zm-16-10v8h13l-2-4,2-4H469Z" transform="translate(-464 -463)" />
               </svg>
             </ButtonFlag>
-            <ButtonNextImage onClick={canNavigate ? this.handleNextClick : ''}>{'>'}</ButtonNextImage>
+            <ButtonNextImage onClick={canNavigate ? this.handleNextClick : () => {}}>{'>'}</ButtonNextImage>
           </FixedDiv>
           <XButtonPopup onClick={this.closePopupGallery}>X</XButtonPopup>
         </div>

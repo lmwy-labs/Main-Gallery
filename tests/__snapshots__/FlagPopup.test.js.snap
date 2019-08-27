@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FlagPopup renders successfully 1`] = `
+<Container>
+  <Header>
+    Report a photo problem
+  </Header>
+  <Button
+    onClick={[Function]}
+  >
+    Unrelated to restaurant
+  </Button>
+  <Button
+    onClick={[Function]}
+  >
+    Inappropriate content
+  </Button>
+  <Button
+    onClick={[Function]}
+  >
+    I don't like this photo
+  </Button>
+  <CancelButton
+    onClick={[Function]}
+  >
+    Cancel
+  </CancelButton>
+</Container>
+`;
