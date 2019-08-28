@@ -204,4 +204,11 @@ describe('Gallery', () => {
     expect(imageInfo.length).toBe(1);
     expect(imageInfo.first().props().image).toEqual({ url: 'mockUrl0' });
   });
+
+  test('should show the number of remaining images over the last image in the static gallery', () => {
+    const wrapper = shallow(
+      <Gallery images={testData} />,
+    );
+    expect(wrapper.find('MoreImages').first().text()).toBe('+ 1 more');
+  });
 });

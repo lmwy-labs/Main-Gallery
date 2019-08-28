@@ -136,7 +136,10 @@ class Gallery extends React.Component {
           <Column>
             <ImgTriple onClick={this.handleClick} id={6} src={images[6].url} />
             <ImgTriple onClick={this.handleClick} id={7} src={images[7].url} />
-            <ImgLast onClick={this.handleClick} id={8} src={images[8].url} />
+            <ContainerLast>
+              <ImgLast onClick={this.handleClick} src={images[8].url} id={8} />
+              <MoreImages>+ {images.length - 9} more</MoreImages>
+            </ContainerLast>
           </Column>
         </Row>
       </div>
@@ -195,17 +198,42 @@ const ImgTriple = styled(Img)`
 
 ImgTriple.displayName = 'ImgTriple';
 
-const ImgLast = styled(ImgTriple)`
-  filter: brightness(50%);
-  &:hover {
-    filter: brightness(25%);
-  }
+const ContainerLast = styled.div`
+  width: 91.84px;
   @media only screen and (max-width: 767px) {
     width: 13vw
+  }
+  position: relative;
+`;
+
+const ImgLast = styled(ImgTriple)`
+  @media only screen and (max-width: 767px) {
+    width: 13vw
+  }
+  filter: brightness(50%);
+  :hover {
+    filter: brightness(25%);
   }
 `;
 
 ImgLast.displayName = 'ImgLast';
+
+const MoreImages = styled.div`
+  color: white;
+  position: absolute;
+  width: 100%;
+  pointer-events: none;
+  text-align: center;
+  top: 50%;
+  margin-top: -9px;
+  cursor: pointer;
+  @media only screen and (max-width: 506px) {
+    margin-top: -20px;
+  }
+`;
+
+MoreImages.displayName = 'MoreImages';
+
 
 const GreyBackground = styled.div`
   position: fixed;
