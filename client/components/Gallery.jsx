@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import FlagPopup from './FlagPopup.jsx';
+import ImageInfo from './ImageInfo.jsx';
 
 class Gallery extends React.Component {
   constructor(props) {
@@ -109,6 +110,7 @@ class Gallery extends React.Component {
               </svg>
             </ButtonFlag>
             <ButtonNextImage onClick={canNavigate ? this.handleNextClick : () => {}}>{'>'}</ButtonNextImage>
+            <ImageInfo image={images[selected]} />
           </FixedDiv>
           <XButtonPopup onClick={this.closePopupGallery}>X</XButtonPopup>
         </div>

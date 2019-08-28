@@ -189,4 +189,19 @@ describe('Gallery', () => {
     wrapper.instance().closeFlagPopup();
     expect(wrapper.find('FlagPopup').length).toBe(0);
   });
+
+  test('should render image information when popup gallery is rendered', () => {
+    const wrapper = shallow(
+      <Gallery images={testData} />,
+    );
+    const image = wrapper.find('ImgDouble').first();
+    image.props().onClick({
+      target: {
+        id: 0,
+      },
+    });
+    const imageInfo = wrapper.find('ImageInfo');
+    expect(imageInfo.length).toBe(1);
+    expect(imageInfo.first().props().image).toEqual({ url: 'mockUrl0' });
+  });
 });
