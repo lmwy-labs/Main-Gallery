@@ -21,7 +21,7 @@ const Image = mongoose.model('Image', imageSchema);
 
 const getImages = (rid, cb) => {
   Image.find({ restaurantId: rid }, (err, docs) => {
-    if (err) {
+    if (docs.length === 0) {
       cb(err, null);
     } else {
       cb(null, docs);

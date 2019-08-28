@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import PropType from 'prop-types';
 import Gallery from './Gallery.jsx';
 
 const Header = styled.h2`
@@ -9,11 +10,18 @@ const Header = styled.h2`
 
 Header.displayName = 'Header';
 
+const ErrorDiv = styled.div`
+`;
+
+ErrorDiv.displayName = 'ErrorDiv';
+
+
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       images: [],
+      hasError: false,
     };
     this.getImages = this.getImages.bind(this);
   }
@@ -23,7 +31,8 @@ class App extends React.Component {
   }
 
   getImages() {
-    axios.get(`/api${window.location.pathname}images`, {
+    const { path } = this.props;
+    axios.get(`/api${path}images`, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -31,20 +40,25 @@ class App extends React.Component {
       .then((response) => {
         this.setState({ images: response.data });
       })
-      .catch((err) => {
-        console.log(err);
+      .catch(() => {
+        this.setState({ hasError: true });
       });
   }
 
   render() {
-    const { images } = this.state;
+    const { images, hasError } = this.state;
     return (
       <div>
         <Header>{images.length} Photos</Header>
         <Gallery images={images} />
+        {hasError ? <ErrorDiv /> : <div />}
       </div>
     );
   }
 }
+
+App.propTypes = {
+  path: PropType.string.isRequired,
+};
 
 export default App;

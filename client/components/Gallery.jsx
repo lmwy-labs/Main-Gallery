@@ -148,7 +148,7 @@ class Gallery extends React.Component {
 }
 
 Gallery.propTypes = {
-  images: PropTypes.arrayOf(PropTypes.object),
+  images: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.string])
 };
 
 Gallery.defaultProps = {
