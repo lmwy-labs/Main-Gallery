@@ -9,4 +9,10 @@ describe('App', () => {
     const wrapper = shallow(<App />);
     expect(wrapper.find('Gallery').props().images).toEqual([]);
   });
+  test('should render a header that indicates how many photos the restaurant has in the database', () => {
+    const wrapper = shallow(<App />);
+    setTimeout(() => {
+      expect(wrapper.find('Header').text()).toBe('11 Photos');
+    });
+  });
 });
