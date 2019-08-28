@@ -50,8 +50,7 @@ class App extends React.Component {
     return (
       <div>
         <Header>{images.length} Photos</Header>
-        <Gallery images={images} />
-        {hasError ? <ErrorDiv /> : <div />}
+        {hasError ? <ErrorDiv /> : <Gallery images={images} />}
       </div>
     );
   }
