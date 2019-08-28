@@ -78,7 +78,16 @@ const ImageInfo = ({ image }) => {
 };
 
 ImageInfo.propTypes = {
-  image: PropType.objectOf(PropType.string),
+  image: PropType.shape({
+    date: PropType.string,
+    name: PropType.string,
+    __v: PropType.number,
+    _id: PropType.string,
+    photographer: PropType.string,
+    restaurantId: PropType.string,
+    url: PropType.string,
+    source: PropType.string,
+  }),
 };
 
 ImageInfo.defaultProps = {
