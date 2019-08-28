@@ -1,5 +1,19 @@
 const get = () => (
-  Promise.resolve({ data: [] })
+  Promise.resolve({
+    data: [
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+      {},
+    ],
+  })
 );
 
 exports.get = get;
