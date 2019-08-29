@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
+import PropType from 'prop-types';
 import Gallery from './Gallery.jsx';
 
 const Header = styled.h2`
@@ -23,7 +24,8 @@ class App extends React.Component {
   }
 
   getImages() {
-    axios.get(`/api${window.location.pathname}images`, {
+    const { path } = this.props;
+    axios.get(`/api${path}images`, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -33,11 +35,17 @@ class App extends React.Component {
       })
       .catch((err) => {
         console.log(err);
+        this.setState({ images: [] });
       });
   }
 
   render() {
     const { images } = this.state;
+
+    if (images.length === 0) {
+      return null;
+    }
+
     return (
       <div>
         <Header>{images.length} Photos</Header>
@@ -46,5 +54,9 @@ class App extends React.Component {
     );
   }
 }
+
+App.propTypes = {
+  path: PropType.string.isRequired,
+};
 
 export default App;
