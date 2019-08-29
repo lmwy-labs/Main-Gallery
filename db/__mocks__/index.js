@@ -272,11 +272,11 @@ const sampleResponseData = [
 ];
 
 const getImages = (rid, cb) => {
-  if (rid > 100) {
-    cb('No images found for this restaurant', null);
-  } else {
-    cb(null, sampleResponseData);
+  if (rid === 'willThrowError') {
+    cb('Unknown error');
   }
+
+  cb(null, sampleResponseData);
 };
 
 exports.getImages = getImages;

@@ -8,13 +8,22 @@ describe('App', () => {
   test('should render the Gallery component upon its own render', () => {
     const wrapper = mount(<App path="/restaurants/r1/" />);
     expect(wrapper.props().path).toBe('/restaurants/r1/');
-    expect(wrapper.find('Gallery').length).toBe(1);
+    setTimeout(() => {
+      expect(wrapper.find('Gallery').length).toBe(1);
+    });
   });
 
-  test('should display an error div if the restaurant id is not present in the database', () => {
-    const wrapper = mount(<App path="/restaurants/r101/" />);
+  test('should not render the gallery or header if the restaurant has no images or if an error occurs', () => {
+    let wrapper = mount(<App path="/restaurants/noImagesHere/" />);
     setTimeout(() => {
-      expect(wrapper.find('ErrorDiv').length).toBe(1);
+      expect(wrapper.find('Gallery').length).toBe(0);
+      expect(wrapper.find('Header').length).toBe(0);
+    });
+
+    wrapper = mount(<App path="/restaurants/willThrowError/" />);
+    setTimeout(() => {
+      expect(wrapper.find('Gallery').length).toBe(0);
+      expect(wrapper.find('Header').length).toBe(0);
     });
   });
 

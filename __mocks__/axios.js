@@ -1,6 +1,13 @@
 const get = (url) => {
-  if (url.split('/')[3].substring(1) > 100) {
-    return Promise.reject('No images found for this restaurant');
+  const restaurantName = url.split('/')[3];
+  if (restaurantName === 'willThrowError') {
+    return Promise.reject('Unknown error');
+  }
+
+  if (restaurantName === 'noImagesHere') {
+    return Promise.resolve({
+      data: [],
+    });
   }
 
   return Promise.resolve({

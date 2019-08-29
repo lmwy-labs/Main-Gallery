@@ -10,18 +10,11 @@ const Header = styled.h2`
 
 Header.displayName = 'Header';
 
-const ErrorDiv = styled.div`
-`;
-
-ErrorDiv.displayName = 'ErrorDiv';
-
-
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       images: [],
-      hasError: false,
     };
     this.getImages = this.getImages.bind(this);
   }
@@ -40,17 +33,23 @@ class App extends React.Component {
       .then((response) => {
         this.setState({ images: response.data });
       })
-      .catch(() => {
-        this.setState({ hasError: true });
+      .catch((err) => {
+        console.log(err);
+        this.setState({ images: [] });
       });
   }
 
   render() {
-    const { images, hasError } = this.state;
+    const { images } = this.state;
+
+    if (images.length === 0) {
+      return null;
+    }
+
     return (
       <div>
         <Header>{images.length} Photos</Header>
-        {hasError ? <ErrorDiv /> : <Gallery images={images} />}
+        <Gallery images={images} />
       </div>
     );
   }
