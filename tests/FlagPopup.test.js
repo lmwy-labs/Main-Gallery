@@ -7,10 +7,10 @@ import FlagPopup from '../client/components/FlagPopup.jsx';
 describe('FlagPopup', () => {
   test('should render a Container, Header, three Buttons, and Cancel Button upon its own render', () => {
     const wrapper = shallow(<FlagPopup />);
-    expect(wrapper.find('Container').length).toEqual(1);
-    expect(wrapper.find('Header').length).toEqual(1);
-    expect(wrapper.find('Button').length).toEqual(3);
-    expect(wrapper.find('CancelButton').length).toEqual(1);
+    expect(wrapper.find('Container').length).toBe(1);
+    expect(wrapper.find('Header').length).toBe(1);
+    expect(wrapper.find('Button').length).toBe(3);
+    expect(wrapper.find('CancelButton').length).toBe(1);
   });
 
   test('should invoke handleClick when any of the buttons are clicked', () => {

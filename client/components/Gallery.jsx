@@ -24,7 +24,7 @@ class Gallery extends React.Component {
 
   handleClick(e) {
     this.setState({
-      selected: e.target.id,
+      selected: Number(e.target.id),
       canNavigate: true,
     });
     document.addEventListener('keydown', this.handleKeypress);
@@ -45,23 +45,23 @@ class Gallery extends React.Component {
   handleNextClick() {
     const { selected } = this.state;
     const { images } = this.props;
-    if (selected == images.length - 1) {
+    if (selected === images.length - 1) {
       return;
     }
 
-    this.setState({
-      selected: Number(selected) + 1,
-    });
+    this.setState((state) => ({
+      selected: state.selected + 1,
+    }));
   }
 
   handlePreviousClick() {
     const { selected } = this.state;
-    if (selected == 0) {
+    if (selected === 0) {
       return;
     }
-    this.setState({
-      selected: selected - 1,
-    });
+    this.setState((state) => ({
+      selected: state.selected - 1,
+    }));
   }
 
   closePopupGallery() {
@@ -148,7 +148,7 @@ class Gallery extends React.Component {
 }
 
 Gallery.propTypes = {
-  images: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.string])
+  images: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.object), PropTypes.string]),
 };
 
 Gallery.defaultProps = {
