@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /* eslint-disable react/jsx-filename-extension */
 import { mount } from 'enzyme';
 import React from 'react';
@@ -12,23 +13,23 @@ describe('ImageInfo', () => {
 
   test('should render nothing if the source is restaurant', () => {
     const wrapper = mount(<ImageInfo image={testData[0]} />);
-    expect(wrapper.props().image.source).toBe('Restaurant');
+    expect(wrapper.prop('image').source).toBe('Restaurant');
     expect(wrapper.text()).toBe('');
   });
 
   test('should render the image name, date, photographer name if the source is Foodspotting', () => {
     const wrapper = mount(<ImageInfo image={testData[1]} />);
     expect(wrapper.props().image.source).toBe('Foodspotting');
-    expect(wrapper.find('Name').length).toBe(1);
-    expect(wrapper.find('Date').length).toBe(1);
-    expect(wrapper.find('Photographer').length).toBe(1);
+    expect(wrapper.find('Name').exists()).toBe(true);
+    expect(wrapper.find('Date').exists()).toBe(true);
+    expect(wrapper.find('Photographer').exists()).toBe(true);
   });
 
   test('should render the logo, OpenTable Diner header, and date if the source if OpenTable Diner', () => {
     const wrapper = mount(<ImageInfo image={testData[2]} />);
     expect(wrapper.props().image.source).toBe('OpenTable Diner');
-    expect(wrapper.find('Svg').length).toBe(1);
-    expect(wrapper.find('OTName').length).toBe(1);
-    expect(wrapper.find('OTDate').length).toBe(1);
+    expect(wrapper.find('Svg').exists()).toBe(true);
+    expect(wrapper.find('OTName').exists()).toBe(true);
+    expect(wrapper.find('OTDate').exists()).toBe(true);
   });
 });
