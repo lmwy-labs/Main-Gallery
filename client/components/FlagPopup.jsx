@@ -13,6 +13,7 @@ const Container = styled.div`
   left: 50%;
   top: 200px;
   margin-left: -200px;
+  font-family: 'Brandon';
 `;
 
 Container.displayName = 'Container';

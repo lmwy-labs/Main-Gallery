@@ -15,8 +15,8 @@
 1. [Development](#development)
 
 ## Usage
-[TODO]
-> Some usage instructions
+> To seed database, "npm run seed"
+> To start server, "npm start"
 
 ## Requirements
 [TODO]

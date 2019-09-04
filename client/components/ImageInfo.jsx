@@ -7,6 +7,7 @@ const Container = styled.div`
   z-index: 2;
   color: white;
   margin-top: -30px;
+  font-family: Brandon;
 `;
 
 const Photographer = styled.div`

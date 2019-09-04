@@ -2,3 +2,13 @@
   margin: 0px;
   padding: 0px;
 }
+
+@font-face {
+  font-family: 'Brandon';
+  src: url(./HVD\ Fonts\ -\ BrandonText-Regular.otf) format('opentype');
+}
+
+@font-face {
+  font-family: 'BrandonText-Black';
+  src: url(./HVD\ Fonts - BrandonText-Black.otf) format ('opentype');
+}

@@ -219,6 +219,7 @@ const ImgLast = styled(ImgTriple)`
 ImgLast.displayName = 'ImgLast';
 
 const MoreImages = styled.div`
+  font-family: Brandon;
   color: white;
   position: absolute;
   width: 100%;

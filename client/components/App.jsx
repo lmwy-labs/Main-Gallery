@@ -6,6 +6,7 @@ import Gallery from './Gallery.jsx';
 
 const Header = styled.h2`
   padding-bottom: 20px;
+  font-family: BrandonText-Black;
 `;
 
 Header.displayName = 'Header';
@@ -24,8 +25,7 @@ class App extends React.Component {
   }
 
   getImages() {
-    const { path } = this.props;
-    axios.get(`/api${path}images`, {
+    axios.get(`http://localhost:3002/api${window.location.pathname}images`, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -55,8 +55,5 @@ class App extends React.Component {
   }
 }
 
-App.propTypes = {
-  path: PropType.string.isRequired,
-};
-
+window.Gallery = App;
 export default App;
