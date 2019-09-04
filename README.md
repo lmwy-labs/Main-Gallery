@@ -15,11 +15,10 @@
 
 ## Usage
 > To seed database, use "npm run seed"
+> To create bundle, use "npm run build:dev" (bundle is named main.js)
 > To start server, use "npm start"
 > This component uses port 3002
-> To install dependencies, use "npm install"
 > Gallery component is in the global scope
-> Feel free to use main.mini.js instead of main.js
 
 ## Requirements
 - Node 6.13.0
