@@ -1,11 +1,10 @@
 # Project Name
 
-> Gallery component for OpenTable clone
+> Gallery component for LMWY Labs - Restaurant Page
 
 ## Related Projects
 
   - https://github.com/lmwy-labs/Right-Reservations
-  - https://github.com/lmwy-labs/Main-Menu
   - https://github.com/lmwy-labs/Main-Reviews
 
 ## Table of Contents
@@ -15,23 +14,21 @@
 1. [Development](#development)
 
 ## Usage
-> To seed database, "npm run seed"
-> To start server, "npm start"
+> To seed database, use "npm run seed"
+> To start server, use "npm start"
+> This component uses port 3002
+> To install dependencies, use "npm install"
+> Gallery component is in the global scope
+> Feel free to use main.mini.js instead of main.js
 
 ## Requirements
-[TODO]
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
-
 - Node 6.13.0
-- etc
 
 ## Development
-[TODO]
 ### Installing Dependencies
 
 From within the root directory:
 
 ```sh
-npm install -g webpack
 npm install
 ```
