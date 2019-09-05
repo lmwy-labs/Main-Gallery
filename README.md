@@ -16,10 +16,10 @@
 ## Usage
 > To seed database, use "npm run seed"
 > To start server, use "npm start"
+> To create bundle, use "npm build"
 > This component uses port 3002
-> To install dependencies, use "npm install"
+> Important! Styled components will not work without a CDN
 > Gallery component is in the global scope
-> Feel free to use main.mini.js instead of main.js
 
 ## Requirements
 - Node 6.13.0

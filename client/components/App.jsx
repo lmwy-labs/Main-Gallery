@@ -1,7 +1,5 @@
 import React from 'react';
 import axios from 'axios';
-import styled from 'styled-components';
-import PropType from 'prop-types';
 import Gallery from './Gallery.jsx';
 
 const Header = styled.h2`

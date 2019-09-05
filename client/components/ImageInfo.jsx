@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from 'styled-components';
 import PropType from 'prop-types';
 import convertDate from '../utils/convertDate.js';
 
