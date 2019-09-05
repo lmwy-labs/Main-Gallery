@@ -17,7 +17,9 @@
 > To seed database, use "npm run seed"
 > To create bundle, use "npm run build:dev" (bundle is named main.js)
 > To start server, use "npm start"
+> To create bundle, use "npm build"
 > This component uses port 3002
+> Important! Styled components will not work without a CDN
 > Gallery component is in the global scope
 
 ## Requirements

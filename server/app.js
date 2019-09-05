@@ -10,7 +10,7 @@ app.get('/api/restaurants/:rid/images', (req, res) => {
     if (err) {
       res.status(500).send({ error: err });
     }
-    
+
     res.set('Access-Control-Allow-Origin', '*');
     res.status(200).send(docs);
   });
