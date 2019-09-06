@@ -14,21 +14,18 @@
     "start": "node server/server.js",
     "start:dev": "nodemon server/server.js -w",
     "test": "jest",
-    "testDB": "mocha tests/db.mocha.js",
     "seed": "node db/seed.js",
     "coverage": "npx jest --coverage"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
     "axios": "^0.19.0",
+    "compression": "^1.7.4",
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "mongoose": "^5.6.12",
     "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
-    "request": "^2.88.0",
-    "webpack-cli": "^3.3.7"
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -50,15 +47,20 @@
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^1.7.0",
     "grunt": "^1.0.4",
+    "grunt-aws-s3": "^2.0.1",
     "grunt-contrib-uglify": "^4.0.1",
     "grunt-contrib-watch": "^1.1.0",
+    "grunt-s3": "^0.2.0-alpha.3",
     "jest": "^24.9.0",
     "jest-styled-components": "^6.3.3",
     "mocha": "^6.2.0",
     "parse-multipart": "^1.0.4",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "superagent": "^5.1.0",
     "supertest": "^4.0.2",
-    "webpack": "^4.39.2"
+    "webpack": "^4.39.2",
+    "webpack-cli": "^3.3.8"
   },
   "jest": {
     "setupFilesAfterEnv": [

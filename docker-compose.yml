@@ -2,7 +2,7 @@ version: '3'
 
 services:
   gallery:
-    build: .
+    image: howardyang25/lmwy-labs-ot-main-gallery:latest
     depends_on:
       - 'database'
     ports: 

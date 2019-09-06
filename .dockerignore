@@ -1,2 +1,14 @@
 node_modules
 npm-debug.log
+webpack.config.js
+STYLE-GUIDE.md
+setupTests.js
+README.md
+Gruntfile.js
+tests
+images
+db/__mocks__
+coverage
+client
+__mocks__
+package-lock.json

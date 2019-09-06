@@ -11,6 +11,9 @@ db.once('open', () => {
   const imageSchema = new mongoose.Schema({
     restaurantId: String,
     url: String,
+    urlS: String,
+    urlM: String,
+    urlL: String,
     name: String,
     source: String,
     date: Date,
@@ -41,7 +44,10 @@ db.once('open', () => {
       for (let i = 0; i < randomNumbers[rid]; i += 1) {
         const saveDocumentFxn = () => {
           const image = new Image({
-            url: i % 2 === 0 ? `https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/${rid}.jpg` : 'https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/2.jpeg',
+            url: i % 2 === 0 ? `https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/${rid}.jpg` : 'https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/filler.jpg',
+            urlS: i % 2 === 0 ? `https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/small/${rid}.jpg` : 'https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/small/filler.jpg',
+            urlM: i % 2 === 0 ? `https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/medium/${rid}.jpg` : 'https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/medium/filler.jpg',
+            urlL: i % 2 === 0 ? `https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/large/${rid}.jpg` : 'https://lmwy-labs-ot-images.s3-us-west-1.amazonaws.com/large/filler.jpg',
             restaurantId: `r${rid}`,
             source: sources[Math.floor(Math.random() * 3)],
             photographer: faker.name.findName(),

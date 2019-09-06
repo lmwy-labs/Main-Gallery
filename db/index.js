@@ -11,6 +11,9 @@ db.once('open', () => {
 const imageSchema = new mongoose.Schema({
   restaurantId: String,
   url: String,
+  urlS: String,
+  urlM: String,
+  urlL: String,
   name: String,
   source: String,
   date: Date,
