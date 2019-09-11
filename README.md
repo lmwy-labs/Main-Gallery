@@ -4,8 +4,8 @@
 
 ## Related Projects
 
-  - https://github.com/lmwy-labs/Right-Reservations
-  - https://github.com/lmwy-labs/Main-Reviews
+  - https://github.com/TJM-Associates/ot-right-reservations
+  - https://github.com/TJM-Associates/ot-main-reviews
 
 ## Table of Contents
 
