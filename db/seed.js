@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const faker = require('faker');
 
-mongoose.connect('mongodb://database/otimages', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost:27017/otimages', { useNewUrlParser: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -68,8 +68,8 @@ db.once('open', () => {
   }
 
   seedRestaurantFxns.reduce((p, f) => p.then(f), Promise.resolve());
-  setTimeout(() => {
-    console.log('Please wait...');
-    mongoose.disconnect();
-  });
+  // setTimeout(() => {
+  //   console.log('Please wait...');
+  //   mongoose.disconnect();
+  // });
 });
