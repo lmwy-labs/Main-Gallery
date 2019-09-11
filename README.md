@@ -33,3 +33,8 @@ From within the root directory:
 ```sh
 npm install
 ```
+## RESTful CRUD API
+GET - '/api/restaurants/:rid/images'
+POST - '/api/restaurants/:rid/images'
+PUT - '/api/restaurants/:rid/images'
+DELETE - '/api/restaurants/:rid/images'
