@@ -121,23 +121,29 @@ class Gallery extends React.Component {
         {bigImage === undefined ? <div /> : bigImage}
         <Row>
           <Column>
-            <ImgDouble onClick={this.handleClick} id={0} src={images[0].urlM} />
-            <ImgDouble onClick={this.handleClick} id={1} src={images[1].urlM} />
+            <ImgDouble onClick={this.handleClick} id={0} src={images[0].url} />
+            <ImgDouble onClick={this.handleClick} id={1} src={images[1].url} />
           </Column>
           <Column>
-            <ImgSingle onClick={this.handleClick} id={2} src={images[2].urlL} />
+            <ImgSingle onClick={this.handleClick} id={2} src={images[2].url} />
           </Column>
           <Column>
-            <ImgTriple onClick={this.handleClick} id={3} src={images[3].urlS} />
-            <ImgTriple onClick={this.handleClick} id={4} src={images[4].urlS} />
-            <ImgTriple onClick={this.handleClick} id={5} src={images[5].urlS} />
+            <ImgTriple onClick={this.handleClick} id={3} src={images[3].url} />
+            <ImgTriple onClick={this.handleClick} id={4} src={images[4].url} />
+            <ImgTriple onClick={this.handleClick} id={5} src={images[5].url} />
           </Column>
           <Column>
-            <ImgTriple onClick={this.handleClick} id={6} src={images[6].urlS} />
-            <ImgTriple onClick={this.handleClick} id={7} src={images[7].urlS} />
+            <ImgTriple onClick={this.handleClick} id={6} src={images[6].url} />
+            <ImgTriple onClick={this.handleClick} id={7} src={images[7].url} />
             <ContainerLast>
-              <ImgLast onClick={this.handleClick} src={images[8].urlS} id={8} />
-              <MoreImages>+ {images.length - 9} more</MoreImages>
+              <ImgLast onClick={this.handleClick} src={images[8].url} id={8} />
+              <MoreImages>
++
+{' '}
+{images.length - 9}
+{' '}
+more
+</MoreImages>
             </ContainerLast>
           </Column>
         </Row>
