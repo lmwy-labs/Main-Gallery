@@ -4,7 +4,33 @@ CREATE KEYSPACE IF NOT EXISTS restaurant_images
   };
 
 CREATE TABLE IF NOT EXISTS restaurant_images.restaurants (
-  restaurantId int,
-  images list<frozen<map<text, text>>>,
-  PRIMARY KEY(restaurantId)
+  r_id int,
+  restaurant_name text,
+  url text,
+  source text,
+  picture_date text,
+  photographer text, 
+  name text, 
+  PRIMARY KEY(r_id, url)
 );
+
+
+
+
+-- CREATE TABLE restaurants (
+--   rId uuid, 
+--   restaurantId text, 
+--   imageId int
+-- );
+
+-- CREATE TABLE restaurantImages (  
+-- restaurantId int,  
+-- url text,  
+-- source text,  
+-- date: text,  
+-- photographer: text,  
+-- name text,  
+-- Primary key (restaurantId)
+-- );
+
+  

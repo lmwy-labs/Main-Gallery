@@ -38,6 +38,6 @@ GET - '/api/restaurants/:rid/images'
 
 POST - '/api/restaurants/:rid/images'
 
-PUT - '/api/restaurants/:rid/images'
+PUT - '/api/restaurants/:rid/images/:imageId'
 
-DELETE - '/api/restaurants/:rid/images'
+DELETE - '/api/restaurants/:rid/images/:imageId'
