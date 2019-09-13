@@ -1,3 +1,5 @@
+DROP KEYSPACE restaurant_images;
+
 CREATE KEYSPACE IF NOT EXISTS restaurant_images 
   WITH REPLICATION = {
     'class': 'SimpleStrategy', 'replication_factor' : 1

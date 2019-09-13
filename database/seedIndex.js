@@ -15,22 +15,7 @@ const randomSourcePicker = () => {
 };
 
 
-// const generateImagesPerRestaurant = (query, restaurantId) => {
-//   const restaurantImages = [];
-//   for (let i = 0; i < 10; i++) {
-//     const rId = restaurantId;
-//     const restaurantName = `r${restaurantId}`;
-//     const randomImageUrl = randomImageUrlGenerator();
-//     const source = randomSourcePicker();
-//     const photographer = faker.name.findName();
-//     const pictureDate = faker.date.past(2).toString();
-//     const name = foodNames[Math.floor(Math.random() * foodNames.length)];
-
-//     restaurantImages.push({ query, params: [rId, restaurantName, randomImageUrl, source, pictureDate, photographer, name] });
-//   }
-//   return restaurantImages;
-// };
-const generateImagesPerRestaurant = (restaurantId) => {
+const generateImagesPerRestaurant = (query, restaurantId) => {
   const restaurantImages = [];
   for (let i = 0; i < 10; i++) {
     const rId = restaurantId;
@@ -41,19 +26,24 @@ const generateImagesPerRestaurant = (restaurantId) => {
     const pictureDate = faker.date.past(2).toString();
     const name = foodNames[Math.floor(Math.random() * foodNames.length)];
 
-    restaurantImages.push([rId, restaurantName, randomImageUrl, source, pictureDate, photographer, name]);
+    restaurantImages.push({ query, params: [rId, restaurantName, randomImageUrl, source, pictureDate, photographer, name] });
   }
   return restaurantImages;
 };
+// const generateImagesPerRestaurant = (restaurantId) => {
+//   const restaurantImages = [];
+//   for (let i = 0; i < 10; i++) {
+//     const rId = restaurantId;
+//     const restaurantName = `r${restaurantId}`;
+//     const randomImageUrl = randomImageUrlGenerator();
+//     const source = randomSourcePicker();
+//     const photographer = faker.name.findName();
+//     const pictureDate = faker.date.past(2).toString();
+//     const name = foodNames[Math.floor(Math.random() * foodNames.length)];
 
-// const generateRestaurantRowsByThousands = () => {
-//   let restaurantsChunk = [];
-//   for (let i = 0; i < 1000; i++) {
-//     const thisRestaurant = generateImagesPerRestaurant(i);
-//     restaurantsChunk = restaurantsChunk.concat(thisRestaurant);
+//     restaurantImages.push([rId, restaurantName, randomImageUrl, source, pictureDate, photographer, name]);
 //   }
-
-//   return restaurantsChunk;
+//   return restaurantImages;
 // };
 
 module.exports = generateImagesPerRestaurant;
