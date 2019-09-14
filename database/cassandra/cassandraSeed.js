@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const cassandra = require('cassandra-driver');
-const generateImagesPerRestaurant = require('./seedIndex.js');
+const generateData = require('../seedIndex.js');
 
 const client = new cassandra.Client({ contactPoints: ['127.0.0.1:9042'], localDataCenter: 'datacenter1', keyspace: 'restaurant_images' });
 
@@ -14,7 +14,7 @@ const batchQueries = (count) => {
   if (count % 10000 === 0) {
     console.log(count);
   }
-  const queries = generateImagesPerRestaurant(query, count);
+  const queries = generateData.generateImagesPerRestaurantCassandra(query, count);
 
   client.batch(queries, { prepare: true })
     .then(() => {
@@ -37,7 +37,7 @@ const batchQueriesBack = (backCount) => {
   if (backCount % 10000 === 0) {
     console.log('back', backCount);
   }
-  const queries = generateImagesPerRestaurant(query, backCount);
+  const queries = generateData.generateImagesPerRestaurantCassandra(query, backCount);
 
   client.batch(queries, { prepare: true })
     .then(() => {

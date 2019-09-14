@@ -1,3 +1,4 @@
+const fs = require('fs');
 const faker = require('faker');
 
 const sources = ['OpenTable Diner', 'Restaurant', 'Foodspotting'];
@@ -14,35 +15,73 @@ const randomSourcePicker = () => {
   return sources[randomSource];
 };
 
+// const writer = csvWriter({
+//   headers: ['i_d', 'url', 'name', 'pictureDate', 'source', 'photographer', 'restaurant_id'],
+// });
+const imagesCV = fs.createWriteStream('./database/postgres/seedDatabase.csv');
+imagesCV.write('i_id,url,name,pictureDate,source,photographer,restaurant_id\n', 'utf8');
 
-const generateImagesPerRestaurantCassandra = (query, restaurantId) => {
-  const restaurantImages = [];
-  for (let i = 0; i < 10; i++) {
-    const rId = restaurantId;
-    const restaurantName = `r${restaurantId}`;
-    const randomImageUrl = randomImageUrlGenerator();
-    const source = randomSourcePicker();
-    const photographer = faker.name.findName();
-    const pictureDate = faker.date.past(2).toString();
-    const name = foodNames[Math.floor(Math.random() * foodNames.length)];
+// const writeData = (writer, encoding, callback) => {
+//   let restaurantId = 1;
+//   for (let images = 1; images < 100000000; images += 10) {
+//     for (let i = images; i < images + 10; i++) {
+//       const iId = i;
+//       const rId = restaurantId;
+//       const randomImageUrl = randomImageUrlGenerator();
+//       const source = randomSourcePicker();
+//       const photographer = faker.name.findName();
+//       const pictureDate = faker.date.past(2).toString();
+//       const name = foodNames[Math.floor(Math.random() * foodNames.length)];
+//       const data = `${iId},${randomImageUrl},${name},${pictureDate},${source},${photographer},${rId}\n`;
+//       if (i === 100000000) {
+//         writer.write(data, encoding, callback);
+//       } else {
+//         const ok = writer.write(data, encoding);
+//       }
+//       if (i < 100)
+//       if (i % 10000 === 0) {
+//         console.log(i);
+//       }
+//     }
+//     restaurantId++;
+//   }
+//   writer.end();
+// };
 
-    restaurantImages.push({ query, params: [rId, restaurantName, randomImageUrl, source, pictureDate, photographer, name] });
-  }
-  return restaurantImages;
+const writeData = (writer, encoding, callback) => {
+  let i = 100000000;
+  let restaurantId = 1;
+  const write = () => {
+    let ok = true;
+    while (i > 0 && ok) {
+      i--;
+      const iId = i + 1;
+      const rId = restaurantId;
+      const randomImageUrl = randomImageUrlGenerator();
+      const source = randomSourcePicker();
+      const photographer = faker.name.findName();
+      const pictureDate = faker.date.past(2).toString();
+      const name = foodNames[Math.floor(Math.random() * foodNames.length)];
+      const data = `${iId},${randomImageUrl},${name},${pictureDate},${source},${photographer},${rId}\n`;
+      if (i === 0) {
+        writer.write(data, encoding, callback);
+      } else {
+        ok = writer.write(data, encoding);
+      }
+      if (i % 10 === 0) {
+        restaurantId++;
+      }
+      if (i % 100000 === 0) {
+        console.log(i);
+      }
+    }
+    if (i > 0) {
+      writer.once('drain', write);
+    }
+  };
+  write();
 };
-const generateImagesPerRestaurantPostGreSQL = (imageId, restaurantId, callback) => {
-  for (let i = imageId; i < imageId + 10; i++) {
-    const iId = i;
-    const rId = restaurantId;
-    const randomImageUrl = randomImageUrlGenerator();
-    const source = randomSourcePicker();
-    const photographer = faker.name.findName();
-    const pictureDate = faker.date.past(2).toString();
-    const name = foodNames[Math.floor(Math.random() * foodNames.length)];
-    console.log([iId, randomImageUrl, name, pictureDate, source, photographer, rId]);
-    callback([iId, randomImageUrl, name, pictureDate, source, photographer, rId]);
-  }
-};
 
-module.exports.generateImagesPerRestaurantCassandra = generateImagesPerRestaurantCassandra;
-module.exports.generateImagesPerRestaurantPostGreSQL = generateImagesPerRestaurantPostGreSQL;
+writeData(imagesCV, 'utf-8', () => {
+  imagesCV.end();
+});

@@ -18,6 +18,7 @@ CREATE TABLE images (
   i_id SMALLINT PRIMARY KEY,
   url VARCHAR(70) NOT NULL, 
   name TEXT NOT NULL,
+  pictureDate VARCHAR(32) NOT NULL,
   source VARCHAR(32) NOT NULL,
   photographer TEXT NOT NULL,
   restaurant_id INTEGER REFERENCES restaurants(r_id)
