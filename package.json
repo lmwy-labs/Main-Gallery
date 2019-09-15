@@ -16,8 +16,11 @@
     "test": "jest",
     "seed": "node db/seed.js",
     "coverage": "npx jest --coverage",
-    "seed:postgreSQL": "node --max-old-space-size=6144 ./database/postgres/postgresSeed.js",
-    "seed:cassandra": "node ./database/cassandra/cassandraSeed.js"
+    "seed:postgreSQLImages": "node --max-old-space-size=6144 ./database/postgres/postgresSeed.js",
+    "seed:cassandra": "node ./database/cassandra/cassandraSeed.js",
+    "schema:cassandra": "cqlsh -f ./database/cassandra/cassandraSchema.cql",
+    "schema:postgreSQL": "psql -f ./database/postgres/schema.sql",
+    "seed:postgreSQLRestaurants": "node --max-old-space-size=4096 ./database/postgres/restaurantseed.js"
   },
   "dependencies": {
     "@babel/runtime": "^7.5.5",

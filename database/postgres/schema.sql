@@ -5,7 +5,7 @@ CREATE DATABASE restaurant_images;
 
 \connect restaurant_images;
 
-DROP TABLE IF EXISTS restaurants, images, restaurant_image;
+-- DROP TABLE IF EXISTS restaurants, images;
 
 
  CREATE TABLE restaurants (
@@ -15,11 +15,11 @@ DROP TABLE IF EXISTS restaurants, images, restaurant_image;
 
 
 CREATE TABLE images (
-  i_id SMALLINT PRIMARY KEY,
-  url VARCHAR(70) NOT NULL, 
+  i_id INT PRIMARY KEY,
+  url VARCHAR(100) NOT NULL, 
   name TEXT NOT NULL,
-  pictureDate VARCHAR(32) NOT NULL,
-  source VARCHAR(32) NOT NULL,
+  pictureDate VARCHAR(100) NOT NULL,
+  source VARCHAR(100) NOT NULL,
   photographer TEXT NOT NULL,
   restaurant_id INTEGER REFERENCES restaurants(r_id)
 );
