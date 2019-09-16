@@ -9,8 +9,8 @@ CREATE DATABASE restaurant_images;
 
 
  CREATE TABLE restaurants (
-   r_id INTEGER PRIMARY KEY,
-   restaurant_name varchar(10) NOT NULL
+   r_id INTEGER NOT NULL,
+   restaurant_name varchar(10) PRIMARY KEY
 );
 
 
