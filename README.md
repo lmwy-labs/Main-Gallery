@@ -34,10 +34,10 @@ From within the root directory:
 npm install
 ```
 ## RESTful CRUD API
-GET - '/api/restaurants/:rid/images'
+GET - '/api/restaurants/:rid/images' - success: status code 200
 
-POST - '/api/restaurants/:rid/images'
+POST - '/api/restaurants/:rid/images' - success: status code 200
 
-PUT - '/api/restaurants/:rid/images/:imageId'
+PUT - '/api/restaurants/:rid/images/:imageId'- success: status code 200
 
-DELETE - '/api/restaurants/:rid/images/:imageId'
+DELETE - '/api/restaurants/:rid/images/:imageId'- success: status code 202
