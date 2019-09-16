@@ -9,7 +9,7 @@ CREATE DATABASE restaurant_images;
 
 
  CREATE TABLE restaurants (
-   r_id INTEGER NOT NULL,
+   r_id INTEGER UNIQUE NOT NULL,
    restaurant_name varchar(10) PRIMARY KEY
 );
 
