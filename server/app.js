@@ -24,15 +24,15 @@ app.get('/api/restaurants/:rid/images', (req, res) => {
 });
 
 app.post('/api/restaurants/:rid/images', (req, res) => {
-
+  res.sendStatus(200);
 });
 
 app.put('/api/restaurants/:rid/images', (req, res) => {
-
+  res.sendStatus(200);
 });
 
 app.delete('/api/restaurants/:rid/images', (req, res) => {
-
+  res.sendStatus(202);
 });
 
 module.exports = app;

@@ -38,6 +38,6 @@ GET - '/api/restaurants/:rid/images' - success: status code 200
 
 POST - '/api/restaurants/:rid/images' - success: status code 200
 
-PUT - '/api/restaurants/:rid/images' - success: status code 200
+PUT - '/api/restaurants/:rid/images/:imageId'- success: status code 200
 
-DELETE - '/api/restaurants/:rid/images' - success: status code 202
+DELETE - '/api/restaurants/:rid/images/:imageId'- success: status code 202
