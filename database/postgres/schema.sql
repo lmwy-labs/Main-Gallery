@@ -15,7 +15,7 @@ CREATE DATABASE restaurant_images;
 
 
 CREATE TABLE images (
-  i_id INT PRIMARY KEY,
+  i_id INT PRIMARY KEY SERIAL,
   url VARCHAR(100) NOT NULL, 
   name TEXT NOT NULL,
   pictureDate VARCHAR(100) NOT NULL,
