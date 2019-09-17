@@ -7,13 +7,14 @@ CREATE KEYSPACE IF NOT EXISTS restaurant_images
 
 CREATE TABLE IF NOT EXISTS restaurant_images.restaurants (
   r_id int,
+  i_id uuid,
   restaurant_name text,
   url text,
   source text,
   picture_date text,
   photographer text, 
   name text, 
-  PRIMARY KEY(r_id, url)
+  PRIMARY KEY(r_id, i_id)
 );
 
 

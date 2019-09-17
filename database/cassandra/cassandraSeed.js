@@ -4,7 +4,7 @@ const generateData = require('../seedIndex.js');
 
 const client = new cassandra.Client({ contactPoints: ['127.0.0.1:9042'], localDataCenter: 'datacenter1', keyspace: 'restaurant_images' });
 
-const query = 'INSERT INTO restaurants (r_id, restaurant_name, url, source, picture_date, photographer, name) VALUES (?, ?, ?, ?, ?, ?, ?)';
+const query = 'INSERT INTO restaurants (r_id, i_id, restaurant_name, url, source, picture_date, photographer, name) VALUES (?, ?, ?, ?, ?, ?, ?, ?)';
 
 const batchQueries = (count) => {
   if (count === 5000001) {
@@ -22,7 +22,7 @@ const batchQueries = (count) => {
       return batchQueries(count);
     })
     .catch((err) => {
-      console.log('error with batching forwards', err);
+      console.log('error with batching forwards', err, count);
       return batchQueries(count);
     });
 };
@@ -45,7 +45,7 @@ const batchQueriesBack = (backCount) => {
       return batchQueriesBack(backCount);
     })
     .catch((err) => {
-      console.log('error with batching backwards', err);
+      console.log('error with batching backwards', err, backCount);
       return batchQueriesBack(backCount);
     });
 };
