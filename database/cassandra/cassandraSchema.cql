@@ -17,9 +17,6 @@ CREATE TABLE IF NOT EXISTS restaurant_images.restaurants (
   PRIMARY KEY(r_id, i_id)
 );
 
-
-
-
 -- CREATE TABLE restaurants (
 --   rId uuid, 
 --   restaurantId text, 
