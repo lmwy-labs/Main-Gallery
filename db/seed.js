@@ -68,8 +68,8 @@ db.once('open', () => {
   }
 
   seedRestaurantFxns.reduce((p, f) => p.then(f), Promise.resolve());
-  // setTimeout(() => {
-  //   console.log('Please wait...');
-  //   mongoose.disconnect();
-  // });
+  setTimeout(() => {
+    console.log('Please wait...');
+    mongoose.disconnect();
+  });
 });

@@ -32,6 +32,7 @@ const generateImagesPerRestaurantCassandra = (query, restaurantId) => {
   }
   return restaurantImages;
 };
+
 // const generateImagesPerRestaurantPostGreSQL = (imageId, restaurantId, callback) => {
 //   for (let i = imageId; i < imageId + 10; i++) {
 //     const iId = i;
@@ -46,4 +47,4 @@ const generateImagesPerRestaurantCassandra = (query, restaurantId) => {
 // };
 
 module.exports.generateImagesPerRestaurantCassandra = generateImagesPerRestaurantCassandra;
-// module.exports.generateImagesPerRestaurantPostGreSQL = generateImagesPerRestaurantPostGreSQL;
+// module.exports.generateImahttps://imgur.com/a/ClMhG3jgesPerRestaurantPostGreSQL = generateImagesPerRestaurantPostGreSQL;
