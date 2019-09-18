@@ -15,13 +15,6 @@ app.use(compression());
 app.use('/restaurants/:rid', express.static(path.resolve(__dirname, '../public')));
 
 app.get('/api/restaurants/:rid/images', (req, res) => {
-  // db.getImages(req.params.rid, (err, docs) => {
-  //   if (err) {
-  //     res.status(500).send({ error: err });
-  //   }
-  //   res.set('Access-Control-Allow-Origin', '*');
-  //   res.status(200).send(docs);
-  // });
   cassandraControl.getRestaurant(req.params.rid)
     .then((docs) => {
       const reformattedDocs = docs.rows.map((imageDetails) => {
@@ -54,12 +47,24 @@ app.post('/api/restaurants/:rid/images', (req, res) => {
     });
 });
 
-app.put('/api/restaurants/:rid/images:imageId', (req, res) => {
-  res.sendStatus(200);
+app.put('/api/restaurants/:rid/images/:imageId', (req, res) => {
+  cassandraControl.updateRestaurant(req.body, req.params.rid, req.params.imageId)
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      res.status(500).send({ error });
+    });
 });
 
-app.delete('/api/restaurants/:rid/images:imageId', (req, res) => {
-  res.sendStatus(202);
+app.delete('/api/restaurants/:rid/images/:imageId', (req, res) => {
+  cassandraControl.deleteRestaurant(req.params.rid, req.params.imageId)
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      res.status(500).send({ error });
+    });
 });
 
 module.exports = app;
