@@ -4,10 +4,12 @@ const path = require('path');
 const compression = require('compression');
 const morgan = require('morgan');
 const moment = require('moment');
+const bodyParser = require('body-parser');
 const cassandraControl = require('../database/cassandraQueries.js');
 const db = require('../db/index.js');
 
 const app = express();
+app.use(bodyParser.json());
 app.use(morgan());
 app.use(compression());
 app.use('/restaurants/:rid', express.static(path.resolve(__dirname, '../public')));
@@ -43,14 +45,20 @@ app.get('/api/restaurants/:rid/images', (req, res) => {
 });
 
 app.post('/api/restaurants/:rid/images', (req, res) => {
+  cassandraControl.postRestaurant(req.body)
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      res.status(500).send({ error });
+    });
+});
+
+app.put('/api/restaurants/:rid/images:imageId', (req, res) => {
   res.sendStatus(200);
 });
 
-app.put('/api/restaurants/:rid/images', (req, res) => {
-  res.sendStatus(200);
-});
-
-app.delete('/api/restaurants/:rid/images', (req, res) => {
+app.delete('/api/restaurants/:rid/images:imageId', (req, res) => {
   res.sendStatus(202);
 });
 

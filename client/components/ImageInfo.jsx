@@ -56,7 +56,13 @@ const ImageInfo = ({ image }) => {
           {image.name}
           <Date>{convertDate(image.date, '.')}</Date>
         </Name>
-        <Photographer>Photo from {image.photographer} on Foodspotting</Photographer>
+        <Photographer>
+Photo from
+          {' '}
+          {image.photographer}
+          {' '}
+on Foodspotting
+                </Photographer>
       </Container>
     );
   }
@@ -69,7 +75,11 @@ const ImageInfo = ({ image }) => {
           <text dy=".3em" fill="white" fontFamily="Arial" fontSize="15px" textAnchor="middle" x="50%" y="50%">OT</text>
         </Svg>
         <OTName>OpenTable Diner</OTName>
-        <OTDate>Dined on {convertDate(image.date, ',')}</OTDate>
+        <OTDate>
+Dined on
+          {' '}
+          {convertDate(image.date, ',')}
+                </OTDate>
       </Container>
     );
   }
