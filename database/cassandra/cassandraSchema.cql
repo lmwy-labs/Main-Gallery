@@ -1,4 +1,4 @@
-DROP KEYSPACE restaurant_images;
+-- DROP KEYSPACE restaurant_images;
 
 CREATE KEYSPACE IF NOT EXISTS restaurant_images 
   WITH REPLICATION = {
