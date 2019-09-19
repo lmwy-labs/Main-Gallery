@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const moment = require('moment');
 const bodyParser = require('body-parser');
 const cassandraControl = require('../database/cassandraQueries.js');
-const db = require('../db/index.js');
+// const db = require('../db/index.js');
 
 const app = express();
 app.use(bodyParser.json());

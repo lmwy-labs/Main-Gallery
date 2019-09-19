@@ -23,7 +23,7 @@ class App extends React.Component {
   }
 
   getImages() {
-    axios.get(`http://ec2-18-216-192-231.us-east-2.compute.amazonaws.com:3002/api${window.location.pathname}images`, {
+    axios.get(`http://localhost:3002/api${window.location.pathname}images`, {
       headers: {
         'Content-Type': 'application/json',
       },
@@ -46,7 +46,11 @@ class App extends React.Component {
 
     return (
       <div>
-        <Header>{images.length} Photos</Header>
+        <Header>
+          {images.length}
+          {' '}
+Photos
+        </Header>
         <Gallery images={images} />
       </div>
     );
